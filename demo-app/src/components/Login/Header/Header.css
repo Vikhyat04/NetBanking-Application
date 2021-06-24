@@ -1,0 +1,47 @@
+.loginHeader {
+    width: 1348px;
+    height: 48px;
+    padding: 0px 10px;
+    position: relative;
+   /* margin: 0px auto;*/
+    background-color:indigo;
+  }
+  .HeaderImage{
+    margin-left:1px;
+    margin-top: 0px;
+    height:48px;
+}
+
+.HeaderButton1{
+  background-color: purple;
+  text-decoration: white;
+  margin-left: 400px;
+  color: white;
+  height: 35px;
+  width:60px;
+
+
+}
+
+.HeaderButton2{
+  background-color: orangered;
+  text-decoration: white;
+  color:white;
+  height: 35px;
+  width: 70px;
+  /*margin-left: 300px;
+  margin-top: 10;
+  margin-right: 10px;
+  right:50px;
+  */
+  
+
+
+
+}
+
+  .sampleApp{
+    margin-left: 500px;
+    color:white;
+  }
+  

@@ -1,0 +1,34 @@
+.loginLabels{
+    color:black;
+    font-size:medium;
+}
+.login .loginContent{
+    margin-left: 600px;
+    margin-top: 115px;
+
+}
+.login-button {
+    border-radius: 3px;
+    /*transition:0.4s;*/
+    padding: 5px;
+    font-family: Oxygen, sans-serif;
+    font-size: 19px;
+    background-color: orangered;
+}
+
+.login-input {
+    border-radius: 3px;
+    /*transition:0.4s;*/
+    padding: 5px;
+    font-family: Oxygen, sans-serif;
+    color: #3e3e42;
+}
+
+.login{
+   /* margin-left: 300px;*/
+   background-color: gray;
+   height: 800px;
+   position: center;
+}
+
+
