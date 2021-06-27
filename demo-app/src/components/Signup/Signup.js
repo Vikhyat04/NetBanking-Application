@@ -11,7 +11,7 @@ class Signup extends Component{
     constructor(props)
     {
         super(props);
-      console.log("in constructor");
+      console.log("in constructor2");
         this.state={
             email:"",
             password:"",

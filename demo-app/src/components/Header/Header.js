@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./Header.css";
-//import { AiOutlineBars } from "react-router-dom";
+import { FaUserAlt} from "react-icons/fa";
 
 
 class Header extends Component
@@ -18,7 +18,8 @@ constructor(props)
             <div className="GeneralHeader">
                 Home Page
 
-
+             <FaUserAlt/>
+             Bharat
                 <button type="button" className="Log-Out" >LogOut</button>
 
 

@@ -4,13 +4,15 @@
     padding: 0px 10px;
     position: relative;
    /* margin: 0px auto;*/
-    background-color:#0000ff;
+    background-color:indigo;
   }
   .Log-Out{
-    background-color: orangered;
+    background-color: purple;
     text-decoration: white;
-    color:white;
+    margin-left: 400px;
+    color: white;
     height: 35px;
-    width: 70px;
+    width:60px;
+  
   
   }
