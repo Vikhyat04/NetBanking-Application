@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import "./LeftSideBar.css";
+import "./NavigationBar.css";
 import { RiBankFill } from "react-icons/ri";
 import { FcMoneyTransfer } from "react-icons/fc";
 import { FaMoneyCheck } from "react-icons/fa";
 import { FaUserAlt} from "react-icons/fa";
+import { Link, NavLink, Route } from "react-router-dom";
 
 
 class NavigationBar extends Component {
@@ -19,20 +20,31 @@ class NavigationBar extends Component {
           <nav id="sidebar" style={{height:'800px'}}>
                 <ul class="list-unstyled components">
                 <li>
+                     
+                      <li>
+                      <NavLink to="/balance" activeClassName="active">
                       <RiBankFill/>
-                        <label className="" > BalanceEnquiry</label>
+                        <label className="ml-4" > Balance Enquiry</label>
+                      </NavLink>
+                    </li>
                     </li>
                     <li>
+                    <NavLink to="/transfer" activeClassName="active">
                       <FcMoneyTransfer/>
-                        <label className="" >Transfer funds</label>
+                        <label className="ml-4" >Transfer funds</label>
+                        </NavLink>
                     </li>
                     <li>
+                    <NavLink to="/status" activeClassName="active">
                       <FaMoneyCheck/>
-                        <label className="" >ChequeStatus</label>
+                        <label className="ml-4" >Cheque Status</label>
+                        </NavLink>
                     </li>
                     <li>
+                    <NavLink to="/profile" activeClassName="active">
                       <FaUserAlt/>
-                        <label className="" > Profile</label>
+                        <label className="ml-4" > Profile</label>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

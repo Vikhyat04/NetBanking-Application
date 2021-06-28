@@ -4,8 +4,10 @@
     grid-template-rows: auto;
     grid-template-areas:
       "left-side center ";
-      margin-top: 30px;
   }
   .left-side{
     float:left;
+  }
+  .background-color{
+    background-color: gray;
   }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./HomePage.css";
 import Header from "../Header/Header";
 import { BrowserRouter,HashRouter } from "react-router-dom";
+import NavigationBar from "../NavigationBar/NavigationBar"
 
 class HomePage extends Component{
   constructor(props)
@@ -13,12 +14,13 @@ class HomePage extends Component{
 render(){
     return(
       <HashRouter>
-<div className="dummy">
+<div className="background-color">
     <Header/>
+
   <div className="homepage-container">
     <div className="left-side">
+      <NavigationBar/>
 
-hello
       </div>
       <div className="center">
 bye

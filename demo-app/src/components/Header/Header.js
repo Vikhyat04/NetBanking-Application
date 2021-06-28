@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./Header.css";
-import { FaUserAlt} from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 
 
 class Header extends Component
@@ -16,15 +16,18 @@ constructor(props)
     render(){
         return (
             <div className="GeneralHeader">
-                Home Page
+                <div className="align1">
+                <div className="IconStyle">
+                <CgProfile/>
+                </div>
 
-             <FaUserAlt/>
+<div className="textInHeader">
+             
              Bharat
+             </div>
                 <button type="button" className="Log-Out" >LogOut</button>
-
-
-
-            </div>
+</div>
+</div>
 
 
 
