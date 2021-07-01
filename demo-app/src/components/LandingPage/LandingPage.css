@@ -1,0 +1,33 @@
+.homepage-container {
+    display: grid;
+    grid-template-columns: 600px 1300px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "left-side center ";
+  }
+  .left-side{
+    float:left;
+  }
+  .background-color{
+    background-color: #999;
+  }
+  .textAlign{
+      margin-top: 50px;
+      margin-left: 125px;
+      font-size: 45px;
+  }
+  .text2{
+    font-size: 30px;
+    color: cornsilk;
+    margin-left: 125px;
+    font-size: 15px;
+  }
+  .signup-button{
+    background-color: purple;
+    text-decoration: white;
+    color:white;
+    height: 50px;
+    width: 150px;
+    margin-top: 15px;
+      margin-left: 190px;
+  }

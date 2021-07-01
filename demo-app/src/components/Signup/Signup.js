@@ -112,7 +112,10 @@ dataFetch=(<span>Data Fetched</span>)
           <br/>
           <br/>
           <div className="signupContent">
-              
+          <span className="signup-intro">Introduce yourself</span>
+              <br/>
+              <br/>
+
   
              <span className="signupLabels">Username</span>
              <br/>
@@ -123,13 +126,22 @@ dataFetch=(<span>Data Fetched</span>)
 <br/>
 
 <br/>
+Here's my <strong>email address</strong>
+<br/>
+<FaLock/>
+          <input
+            type="text"
+            name="custEmail"
+            placeholder="Email"
+            className="signup-input"
+            onChange={this.emailChanged}
+          ></input>
 
-            Email
             <br/>
-            <FaLock/>
-                <input type="text"  className="signup-input" placeholder="Email" value={this.state.email}  onChange={this.emailChanged} />
+            
 <FiCheckCircle/>
              <br/>
+             
 
             Password
             <br/>

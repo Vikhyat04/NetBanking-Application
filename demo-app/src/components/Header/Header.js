@@ -18,14 +18,15 @@ constructor(props)
             <div className="GeneralHeader">
                 <div className="align1">
                 <div className="IconStyle">
-                <CgProfile/>
-                </div>
-
-<div className="textInHeader">
-             
-             Bharat
-             </div>
+                <CgProfile style={{marginTop:'4px',height:'15px',width:'15px'}}/>
+               
+               <span style={{color:'white',marginTop:'20px'}}> qwer</span>
                 <button type="button" className="Log-Out" >LogOut</button>
+               
+</div>
+
+
+
 </div>
 </div>
 

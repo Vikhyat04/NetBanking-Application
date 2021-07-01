@@ -10,7 +10,7 @@
 .signup-button {
     border-radius: 3px;
     /*transition:0.4s;*/
-    padding: 5px;
+    padding: 3px;
     font-family: Oxygen, sans-serif;
     font-size: 19px;
     background-color: orangered;
@@ -22,11 +22,21 @@
     padding: 5px;
     font-family: Oxygen, sans-serif;
     color: #3e3e42;
+    height: 35px;
+    width: 200px;
+}
+.signup-intro{
+    text-transform: uppercase;
+    font-size: 16px;
+    
+    color: #336ee5;
+    font-weight: bold;
+    line-height: 20px;
 }
 
 .signup{
    /* margin-left: 300px;*/
-   background-color: gray;
+   background-color:#999;
    height: 800px;
    position: center;
 }

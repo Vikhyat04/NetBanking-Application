@@ -23,9 +23,7 @@ render(){
 
       </div>
       <div className="center">
-bye
-
-      </div>
+              </div>
   </div>
     </div>
 
