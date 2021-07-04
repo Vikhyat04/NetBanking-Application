@@ -28,8 +28,8 @@ render(){
         <br/>
         <br/>
         <div className="textAlign">
-        <span style={{color:'white',marginTop:'20px'}}> Less Stress when sharing expenses</span>
-        <span style={{color:'orange',marginTop:'20px'}}> with anyone.</span>
+        <span style={{color:'white',marginTop:'20px'}}>Fulfill your daily banking needs and more using our </span>
+        <span style={{color:'orange',marginTop:'20px'}}> online banking platform</span>
         <br/>
         <GiCommercialAirplane style={{marginTop:'4px',height:'60px',opacity: .5,padding:'12px',width:'60px',color:"turquoise"}}/>
     <FaHome style={{marginTop:'4px',opacity: .2,height:'60px',width:'60px',padding:'12px',color:"purple"}}/>
@@ -38,8 +38,9 @@ render(){
     </div>
  <br/>
 
- <div className="text2">  Keep track of your shared expenses and balances with housemates,trips,groups,friends, and family </div>
+ <div className="text2"> Internet Banking made Conveniet,Easy & Secure with ___________</div>
  
+
  <Link to ="/signup">
                 <button type="button" className="signup-button" >Sign up</button>
                 </Link>
@@ -52,27 +53,32 @@ render(){
       </div>
       <div className="center">
           
-          <img src={Picture} className="BankingImage"/>
+          <img src={Picture} height="300" width="748" className="BankingImage"/>
           <div className="right-side">
           <div className="right-side2">
           <img src={Picture2} className="pic1"/>
-           Transfer
-          <div/>
+          
+          <div marginLeft="70px">Transfer</div>
+          <div marginTop="10px">Pay your maid's, driver's salary, society maintenance or transfer money
+        </div>
+         to your friends & family through NEFT, RTGS or IMPS.</div>
+          
+
           <div className="center2">
           <img src={Picture3} className="pic2"/>
-          <div/>
-          <div/>
+          
+          <div className="">Pay Bills</div>
+          <div className="">Pay your electricity, mobile, gas, water & DTH bills. Recharge your pre-paid mobile number.</div>
+</div>
+          </div>
 
 
 
               </div>
   </div>
   <br/>
-  <div/>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
+   
 
 
     );
