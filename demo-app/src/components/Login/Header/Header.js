@@ -1,7 +1,9 @@
 import { Component } from "react";
 import "./Header.css";
 import Picture1 from '../../../assets/images/companion.PNG'
-import { Link } from "react-router-dom";
+import { Link,Route } from "react-router-dom";
+import LandingPage from "../../LandingPage/LandingPage"
+
 
 
 class Header extends Component
@@ -18,7 +20,12 @@ constructor(props)
         return (
             <div className="loginHeader">
         { /* <img src={dummy}></img>*/}
+
+        <Link to="/">
         <img src={Picture1} className="HeaderImage" width="150" height="50" alt="logo"/>
+        </Link>
+        
+
                 <span className="sampleApp">Sample app</span>
                 
                  <Link to ="/login">
