@@ -1,19 +1,25 @@
 .signupLabels{
     color:black;
     font-size:medium;
+    margin-left: 5px;
 }
 .signup .signupContent{
     margin-left: 600px;
-    margin-top: 115px;
+    margin-top: 1px;
 
 }
 .signup-button {
-    border-radius: 3px;
-    /*transition:0.4s;*/
-    padding: 3px;
-    font-family: Oxygen, sans-serif;
-    font-size: 19px;
-    background-color: orangered;
+    margin-top: 20px;
+    margin-left: 10px;
+  background-color: #ff652f;
+  color: white;
+  border-radius: 5px;
+  font-size: 24px;
+  width: auto;
+  text-shadow: 0 -1px 0 #c83400;
+  border-color: #ff652f;
+  box-shadow: 0 2px 0 0 rgb(55 59 63 / 50%);
+  box-sizing: content-box;
 }
 
 .signup-input {
@@ -36,7 +42,7 @@
 
 .signup{
    /* margin-left: 300px;*/
-   background-color:#999;
+   background-color:#cccccc;
    height: 800px;
    position: center;
 }

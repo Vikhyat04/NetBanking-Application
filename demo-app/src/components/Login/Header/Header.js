@@ -1,8 +1,7 @@
 import { Component } from "react";
 import "./Header.css";
 import Picture1 from '../../../assets/images/companion.PNG'
-import { Link,Route } from "react-router-dom";
-import LandingPage from "../../LandingPage/LandingPage"
+import { Link } from "react-router-dom";
 
 
 

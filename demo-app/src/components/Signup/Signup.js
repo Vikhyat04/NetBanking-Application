@@ -5,6 +5,7 @@ import Header from "../Login/Header/Header";
 import { FaLock } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
+import { MdEmail} from "react-icons/md";
 
 class Signup extends Component{
 
@@ -18,6 +19,8 @@ class Signup extends Component{
             dataFetched:false,
             userName:"",
             emailError:"",
+            countryCode:"",
+            phoneNo:"",
 
         }
 
@@ -31,20 +34,13 @@ class Signup extends Component{
         })
     }
     componentWillMount(){
-        console.log('component will mount');
-        // this.setState({
-        //     email:"asdfg"
-        // })
-
-        
-      
+        console.log('component will mount');      
     }
     componentDidMount()
     {
         this.setState({
             email:""
         })
-console.log('component did mount');
 //one method called to get response from backend api
 this.setState({
     dataFetched:true
@@ -83,8 +79,20 @@ this.setState({
 this.setState({
     email:event.target.value
 })
-
     }
+countryCodeChanged=(event)=>{
+    this.setState({
+      countryCode: event.target.value
+    });
+  }
+
+  phoneNoChanged=(event)=>{
+    this.setState({
+      phoneNo: event.target.value
+    });
+  }
+
+    
     render(){
 
         console.log(this.state.password);
@@ -117,18 +125,17 @@ dataFetch=(<span>Data Fetched</span>)
               <br/>
 
   
-             <span className="signupLabels">Username</span>
+             <span className="signupLabels">Hi there! My name is</span>
              <br/>
              <FaUser/>
-             <input type="email" className="signup-input" placeholder="Username" value={this.state.userName}
-              onChange={this.usernameChanged} required />
+             <input type="email" className="signup-input" placeholder="Username" value={this.state.userName} onChange={this.usernameChanged} required />
            <FiCheckCircle/>
 <br/>
 
 <br/>
-Here's my <strong>email address</strong>
+<span className="signupLabels">Here's my <strong>email address</strong></span>
 <br/>
-<FaLock/>
+<MdEmail style={{height:'15px',width:'15px'}}/>
           <input
             type="text"
             name="custEmail"
@@ -137,26 +144,46 @@ Here's my <strong>email address</strong>
             onChange={this.emailChanged}
           ></input>
 
-            <br/>
             
 <FiCheckCircle/>
              <br/>
+<br/>
              
 
-            Password
+             <span className="signupLabels">Here's my <strong>Password</strong></span>
             <br/>
             <FaLock/>
                 <input type="text" minLength={5} className="signup-input" placeholder="Password" value={this.state.password}  onChange={this.passwordChanged} />
 <FiCheckCircle/>
              <br/>
+             <br/>
              
-             <span className="loginLabels">Reconfirm Passsword</span>
+             <span className="signupLabels">Reconfirm Passsword</span>
              <br/>
              <FaLock/>
              <input type="text" className="signup-input" placeholder="Reconfirm Password" value={this.state.password} onChange={this.emailChanged} />
            <FiCheckCircle/>
 <br/>
+<br/>
+<span className="signupLabels">Here's my <strong>Country Code</strong></span>
                 <br/>
+                <select name="countryCodes" value={this.state.countryCode} onChange={this.countryCodeChanged}>
+          <option value="0">Select Country Code </option>
+            <option value="1">United States(+1)</option>
+            <option value="2">India(+91)</option>
+          </select>
+          <br/>
+          <br/>
+          <span className="signupLabels">Here's my <strong>Phone Number</strong></span>
+<br/>
+          <input
+            type="text"
+            placeholder="Phone Number"
+            className="signup-input"
+            onChange={this.phoneNoChanged}
+          ></input>
+          <br/>
+          <br/>
                 <button type="button" className="signup-button" onClick={this.onLogin}>Submit</button>
                 <br/>
                 </div>

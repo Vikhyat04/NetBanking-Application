@@ -4,16 +4,34 @@
     padding: 0px 10px;
     position: relative;
    /* margin: 0px auto;*/
-    background-color:indigo;
+    background-color:rgb(5, 5, 87);
   }
   .Log-Out{
     background-color: purple;
     text-decoration: white;
     margin-left: 10px;
     color: white;
-    height: 20px;
     width:50px;
-    margin-top:15px;
+    margin-top:10px;
+    border-radius: 5px;
+    font-size: 12px;
+    width: auto;
+    border-color: purple;
+    padding: 4px 10px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*
+      background-color: purple;
+  text-decoration: white;
+  margin-left: 400px;
+  color: white;
+  width:60px;
+  border-radius: 5px;
+  font-size: 12px;
+  width: auto;
+  border-color: purple;
+  padding: 4px 10px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    */
     
   
   }
@@ -23,7 +41,7 @@
     /* padding-left: 10px;*/
   }
   .align1{
-    margin-left: 1200px;
+    margin-left: 1150px;
    
 
 }

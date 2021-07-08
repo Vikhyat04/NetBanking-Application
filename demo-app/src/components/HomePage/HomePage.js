@@ -3,6 +3,8 @@ import "./HomePage.css";
 import Header from "../Header/Header";
 import { BrowserRouter,HashRouter } from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar"
+//import Picture1 from '../../assets/images/welecomeToInternetBanking.PNG'
+
 
 class HomePage extends Component{
   constructor(props)

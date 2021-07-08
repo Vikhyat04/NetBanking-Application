@@ -42,7 +42,7 @@ render(){
  
 
  <Link to ="/signup">
-                <button type="button" className="signup-button" >Sign up</button>
+                <button type="button" className="signup-button2" >Sign up</button>
                 </Link>
 <br/>
 <br/>
@@ -57,12 +57,15 @@ render(){
           <div className="right-side">
           <div className="right-side2">
           <img src={Picture2} className="pic1"/>
-          <div className="transfer1"><span>Transfer</span></div>
+          <div><span className="transfer1">Transfer</span></div>
           <div className="transfer2">Pay your maid's, driver's salary, society maintenance or transfer money to your friends & family through NEFT, RTGS or IMPS.</div>
         
           </div>
           <div className="center2">
           <img src={Picture3} className="pic2"/>
+          <div><span className="pay1">Pay Bills</span></div>
+          <div className="pay2">Pay your electricity, mobile, gas, water & DTH bills. Recharge your pre-paid mobile number.</div>
+        
           </div>
 
           </div>

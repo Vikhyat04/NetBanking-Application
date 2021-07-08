@@ -1,7 +1,8 @@
 import { Component } from "react";
 import "./Header.css";
 import { CgProfile } from "react-icons/cg";
-
+//FaUserAlt
+import { FaUserAlt} from "react-icons/fa";
 
 class Header extends Component
 {
@@ -18,9 +19,9 @@ constructor(props)
             <div className="GeneralHeader">
                 <div className="align1">
                 <div className="IconStyle">
-                <CgProfile style={{marginTop:'4px',height:'15px',width:'15px'}}/>
+                <FaUserAlt style={{height:'15px',width:'15px'}}/>
                
-               <span style={{color:'white',marginTop:'20px'}}> qwer</span>
+               <span style={{color:'white',marginTop:'20px',marginRight:"37px",marginLeft:"3px"}}> Vikhyat</span>
                 <button type="button" className="Log-Out" >LogOut</button>
                
 </div>

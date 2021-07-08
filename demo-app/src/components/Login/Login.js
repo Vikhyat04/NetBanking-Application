@@ -4,8 +4,7 @@ import "./Login.css";
 import Header from "./Header/Header";
 import { FaLock } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
-import { FaUser } from "react-icons/fa";
-
+import { MdEmail} from "react-icons/md";
 
 
 
@@ -19,38 +18,35 @@ class Login extends Component{
             email:"",
             password:"",
             dataFetched:false,
-            userName:"",
-            userNameCheck:false,
-            userNameValid:true
+            emailCheck:false,
+            emailValid:true
 
         }
 
     }
     //e is event and has many prop..therefore use the target value to get its value..compare to real life event exampe..check in inspect
-    usernameChanged=(e)=>{
+    emailChanged=(e)=>{
         console.log(e);
         const uservalue=e.target.value;
-        let userNameCheck=false;
+        let emailCheck=false;
         let emailValidation=new RegExp("^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$");
         let emailValid;
         console.log(emailValidation.exec(uservalue));
         if (emailValidation.exec(uservalue) === null)
         {
-          console.log("Please enter valid email");
         emailValid=false;
        
       }
       else{
-        console.log('email valid::::::::::::::');
       emailValid=true;
   
     }
         if(uservalue.length>5)
-        userNameCheck=true;
+        emailCheck=true;
         this.setState({
-            userName:uservalue,
-            userNameCheck:userNameCheck,
-            userNameValid:emailValid
+            email:uservalue,
+            emailCheck:emailCheck,
+            emailValid:emailValid
         })
        
     }
@@ -66,7 +62,7 @@ class Login extends Component{
     componentDidMount()
     {
         this.setState({
-            email:"asd"
+            email:""
         })
 console.log('component did mount');
 //one method called to get response from backend api
@@ -96,29 +92,21 @@ this.setState({
     }
     render(){
 
-        console.log(this.state.password);
-        console.log('in render',this.state.dataFetched);
         let loginsuccess=null;
         let dataFetch=null;
-        let userNameCheck=null;
-        let userNameError=null;
-        console.log("username valid",this.state.userNameCheck,userNameError);
-        if(!this.state.userNameValid){
-            userNameError=(<span style={{color:'red'}}>Email is invalid</span>)
+        let emailCheck=null;
+        let emailError=null;
+        if(!this.state.emailValid){
+            emailError=(<span style={{color:'red'}}>Email is invalid</span>)
         }
-        if(this.state.userNameCheck)
+        if(this.state.emailCheck)
         {
-            userNameCheck=(   <FiCheckCircle style={{color:'green'}}/>);
+            emailCheck=(   <FiCheckCircle style={{color:'green'}}/>);
         }
         if(this.state.dataFetched)
         {
 dataFetch=(<span>Data Fetched</span>)
         }
-        // if(this.state.email.length>5)
-        // loginsuccess=(  <LoginSuccess email1={this.state.email}
-        //      phoneNumber={this.state.phoneNumber}
-        //      phoneNumberChanged={this.changePhnNumber}
-        //      userName={this.usernameChanged}/>)
       
         return(
                       
@@ -131,19 +119,25 @@ dataFetch=(<span>Data Fetched</span>)
           <br/>
           <br/>
           <div className="loginContent">
+          <span className="login-text1">Welcome to __________-</span>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
   
-             <span className="loginLabels">Username</span>
+             <span className="loginLabels">Email address</span>
              <br/>
            
-             <FaUser/>
-             <input type="text" className="login-input" placeholder="Username" value={this.state.userName} onChange={this.usernameChanged} />
-          {userNameCheck}
+             <MdEmail style={{height:'15px',width:'15px'}}/>
+             <input type="text" className="login-input" placeholder="Email"  value={this.state.email} onChange={this.emailChanged} />
+          {emailCheck}
           <br/>
-          {userNameError}
+          {emailError}
            
 <br/>
 <br/>
-            Password
+<span className="loginLabels">Password</span>
             <br/>
             <FaLock/>
                 <input type="text"  className="login-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
