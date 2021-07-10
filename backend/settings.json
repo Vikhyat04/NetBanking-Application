@@ -1,0 +1,13 @@
+// {
+//   "host": "localhost",
+//   "user": "root",
+//   "password": "Bharath@B427",
+//   "database": "splitwise"
+// }
+
+{
+  "host": "splitwise.cu0buaumd8bx.us-east-2.rds.amazonaws.com",
+  "user": "admin",
+  "password": "Bharath27",
+  "database": "splitwise"
+}

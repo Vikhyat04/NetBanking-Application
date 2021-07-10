@@ -71,8 +71,7 @@
  /* margin-left: 60px;
  color:blanchedalmond
  font-size: */
-      margin-left: 10px;
-      position: center;
+      margin-left: 110px;
       font-size: 20px;
       color:blanchedalmond
 }
@@ -85,10 +84,11 @@
   /* margin-left: 60px;
   color:blanchedalmond
   font-size: */
-       margin-left: 10px;
-       position: center;
+       
        font-size: 20px;
-       color:blanchedalmond
+       color:blanchedalmond;
+       margin-left: 110px;
+      
  }
 
  .pay2{
