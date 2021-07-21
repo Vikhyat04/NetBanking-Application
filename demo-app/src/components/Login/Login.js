@@ -5,7 +5,7 @@ import Header from "./Header/Header";
 import { FaLock } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import { MdEmail} from "react-icons/md";
-
+import axios from "axios";
 
 
 class Login extends Component{
@@ -82,6 +82,43 @@ this.setState({
     }
     onLogin=(e)=>{
 console.log(e);
+const loginRequest={userEmail:this.state.email,userpassword:this.state.password};
+console.log(loginRequest);
+axios.post("http://localhost:3010/login",loginRequest)
+.then(response => {
+    console.log("Status Code : ", response.status);
+    console.log(response);
+    // sessionStorage.setItem("custId", response.data.custId);
+    //sessionStorage.setItem("custName", response.data.custName);
+    if (response.status === 200) {
+      console.log("Response is::",response.data);
+    //   this.setState({
+        // loginSuccessful: true,
+        // custId: response.data._id,
+        // custName: response.data.custName,
+        // custPhoneNumber: response.data.custPhoneNumber,
+
+        // countryCode: response.data.countryCodeId,
+        // image:response.data.image,
+
+        // token: response.data.token
+    //   });
+
+
+    } else {
+      this.setState({
+        // loginSuccessful: false
+      });
+    }
+  })
+  .catch(error => {
+    console.log(error.response);
+    alert(error.response.data.desc)
+    // this.setState({
+    //   loginSuccessful: false,
+    //   errorMsg: error.response.data.desc
+    // });
+  });
     }
     changepassword=(pass)=>{
 console.log(pass);

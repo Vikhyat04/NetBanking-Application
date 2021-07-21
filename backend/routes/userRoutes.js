@@ -7,9 +7,8 @@ const loginSvc=require("../services/LoginSvc")
 
 //http://localhost:3010/signup,
 
-router.post("/signup",loginSvc.login);
-
-//router.post("/login", null);
+router.post("/login",loginSvc.login);
+router.post("/signup", loginSvc.signup);
 
 
 
