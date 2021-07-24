@@ -19,7 +19,11 @@ class Login extends Component{
             password:"",
             dataFetched:false,
             emailCheck:false,
-            emailValid:true
+            emailValid:true,
+            loggedIn:false,
+            userName:"",
+            countryCode:"",
+            phoneNumber:""
 
         }
 
@@ -91,7 +95,15 @@ axios.post("http://localhost:3010/login",loginRequest)
     // sessionStorage.setItem("custId", response.data.custId);
     //sessionStorage.setItem("custName", response.data.custName);
     if (response.status === 200) {
-      console.log("Response is::",response.data);
+      console.log("Response is::",response.data[0]);
+     this.setState({
+        
+          userName:response.data[0].userName,
+          loggedIn:true
+          //countryCode:
+      //    phoneNumber
+      
+    })
     //   this.setState({
         // loginSuccessful: true,
         // custId: response.data._id,
@@ -106,14 +118,14 @@ axios.post("http://localhost:3010/login",loginRequest)
 
 
     } else {
-      this.setState({
+     // this.setState({
         // loginSuccessful: false
-      });
+     // });
     }
   })
   .catch(error => {
-    console.log(error.response);
-    alert(error.response.data.desc)
+    console.log(error);
+    alert(error.response.data.errorDesc)
     // this.setState({
     //   loginSuccessful: false,
     //   errorMsg: error.response.data.desc
@@ -133,6 +145,17 @@ this.setState({
         let dataFetch=null;
         let emailCheck=null;
         let emailError=null;
+
+
+  if(this.state.loggedIn){
+      console.log("logged in");
+    
+      //need to pass useremail,councode,phnno,userid
+      this.props.history.push({pathname:"/home", userDetails:{
+        userName:this.state.userName}})
+  }
+
+
         if(!this.state.emailValid){
             emailError=(<span style={{color:'red'}}>Email is invalid</span>)
         }

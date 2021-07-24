@@ -10,14 +10,26 @@ class HomePage extends Component{
   constructor(props)
   {
       super(props);
+      console.log(this.props);
+
+      this.state={
+        userDetails:{
+          userName:this.props.location.userDetails.userName
+          //userEmail
+          //userId
+          //countryCode
+          //phoneNumber
+        }
+      }
       }
 
 
 render(){
+  console.log(this.state.userDetails);
     return(
       <HashRouter>
 <div className="background-color">
-    <Header/>
+    <Header userDetails={this.state.userDetails}/>
 
   <div className="homepage-container">
     <div className="left-side">

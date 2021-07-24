@@ -1,42 +1,42 @@
 module.exports = (sequelize, Sequelize) => {
-    const user_details = sequelize.define(
-      "userDetails",
+    const userDetails1 = sequelize.define(
+      "userDetails1",
       {
-        id: {
-          type: Sequelize.Integer,
+        userId: {
+          type: Sequelize.INTEGER,
           primaryKey: true,
           allowNull: false,
-          field: "id",
+          field: "user_id",
           autoIncrement: true
         },
-        username: {
+        userName: {
           type: Sequelize.STRING,
-          field: "username",
+          field: "user_name",
           allowNull: false
   
         },
-        email: {
+        userEmail: {
             type: Sequelize.STRING,
-            field: "email",
+            field: "user_email",
             allowNull: false
     
           },
-          password: {
+          userPassword: {
             type: Sequelize.STRING,
-            field: "password",
+            field: "user_password",
             allowNull: false
     
           },
           countrycode: {
             type: Sequelize.STRING,
-            field: "countrycode",
+            field: "country_code",
             allowNull: false
     
           },
           phoneno: {
-            type: Sequelize.Integer,
+            type: Sequelize.INTEGER,
             allowNull: false,
-            field: "PhoneNo",
+            field: "phone_number",
           },
         createdAt: {
             type: Sequelize.DATE,
@@ -46,12 +46,20 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.DATE,
             field: "modified_date"
           },
+          createdBy: {
+            type: Sequelize.STRING,
+            field: "created_by"
+          },
+          updatedBy: {
+            type: Sequelize.STRING,
+            field: "modified_by"
+          },
       },
       {
         tableName: "user_details"
       }
     );
   
-    return user_details;
+    return userDetails1;
   };
   

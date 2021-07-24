@@ -6,6 +6,7 @@ import { FaLock } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
 import { MdEmail} from "react-icons/md";
+import axios from "axios";
 
 class Signup extends Component{
 
@@ -56,7 +57,7 @@ this.setState({
             password:event.target.value
         })
     }
-    onLogin=(e)=>{
+    onSignUp=(e)=>{
         let emailError=""
         let emailValidation=new RegExp("^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$");
         let isValid=emailValidation.test(this.state.email)
@@ -72,6 +73,44 @@ this.setState({
             this.setState({emailError:emailError})
             console.log(emailError)
         }
+        console.log(e);
+const signUpRequest={userEmail:this.state.email,userpassword:this.state.password,userName:this.state.userName,userCountryCode:this.state.countryCode,userPhoneno:this.state.phoneNo};
+console.log(signUpRequest);
+axios.post("http://localhost:3010/signup",signUpRequest)
+.then(response => {
+    console.log("Status Code : ", response.status);
+    console.log(response);
+    // sessionStorage.setItem("custId", response.data.custId);
+    //sessionStorage.setItem("custName", response.data.custName);
+    if (response.status === 200) {
+      console.log("Response is::",response.data);
+    //   this.setState({
+        // loginSuccessful: true,
+        // custId: response.data._id,
+        // custName: response.data.custName,
+        // custPhoneNumber: response.data.custPhoneNumber,
+
+        // countryCode: response.data.countryCodeId,
+        // image:response.data.image,
+
+        // token: response.data.token
+    //   });
+
+
+    } else {
+      this.setState({
+        // loginSuccessful: false
+      });
+    }
+  })
+  .catch(error => {
+    console.log(error.response);
+    alert(error.response.data.desc)
+    // this.setState({
+    //   loginSuccessful: false,
+    //   errorMsg: error.response.data.desc
+    // });
+  });
         
 
     }
@@ -153,7 +192,7 @@ dataFetch=(<span>Data Fetched</span>)
              <span className="signupLabels">Here's my <strong>Password</strong></span>
             <br/>
             <FaLock/>
-                <input type="text" minLength={5} className="signup-input" placeholder="Password" value={this.state.password}  onChange={this.passwordChanged} />
+                <input type="password" minLength={5} className="signup-input" placeholder="Password" value={this.state.password}  onChange={this.passwordChanged} />
 <FiCheckCircle/>
              <br/>
              <br/>
@@ -161,7 +200,7 @@ dataFetch=(<span>Data Fetched</span>)
              <span className="signupLabels">Reconfirm Passsword</span>
              <br/>
              <FaLock/>
-             <input type="text" className="signup-input" placeholder="Reconfirm Password" value={this.state.password} onChange={this.emailChanged} />
+             <input type="password" className="signup-input" placeholder="Reconfirm Password" value={this.state.password} onChange={this.emailChanged} />
            <FiCheckCircle/>
 <br/>
 <br/>
@@ -184,7 +223,7 @@ dataFetch=(<span>Data Fetched</span>)
           ></input>
           <br/>
           <br/>
-                <button type="button" className="signup-button" onClick={this.onLogin}>Submit</button>
+                <button type="button" className="signup-button" onClick={this.onSignUp}>Submit</button>
                 <br/>
                 </div>
 

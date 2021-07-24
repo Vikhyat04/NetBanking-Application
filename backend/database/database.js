@@ -1,14 +1,20 @@
-module.exports = {
-    HOST: "http://localhost:3306",
-    USER: "root",
-    PASSWORD: "1234",
-    DB: "sample",
-    dialect: "mysql",
-    pool: {
-      max: 10,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
-  };
-  
+const mysql = require("mysql");
+const settings = require("./settings.json");
+let db;
+
+const connectDatabase = () => {
+  if (!db) {
+    db = mysql.createConnection(settings);
+
+    db.connect(function(err) {
+      if (!err) {
+        console.log("Database is connected!");
+      } else {
+        console.log("Error connecting database!");
+      }
+    });
+  }
+  return db;
+};
+
+module.exports = connectDatabase();

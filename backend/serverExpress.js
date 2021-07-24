@@ -47,8 +47,8 @@ app.use(captureRequests);
 // console.log("after routes import");
 // app.use("/users", loginRoutes);
 
- //const db = require("./Models");
- //db.sequelize.sync();
+ const db = require("./Models");
+ db.sequelize.sync();
 
 // let loginSignupRoutes = require("./Routes/loginSignupRoutes.js");
 // app.use("/user", loginSignupRoutes);
