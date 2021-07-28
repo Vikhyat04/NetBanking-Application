@@ -99,8 +99,10 @@ axios.post("http://localhost:3010/login",loginRequest)
      this.setState({
         
           userName:response.data[0].userName,
-          loggedIn:true
-          //countryCode:
+          loggedIn:true,
+          countryCode:response.data[0].countryCode,
+          phoneNumber: response.data[0].phoneNo,
+          email:this.state.email,
       //    phoneNumber
       
     })
@@ -151,8 +153,11 @@ this.setState({
       console.log("logged in");
     
       //need to pass useremail,councode,phnno,userid
-      this.props.history.push({pathname:"/home", userDetails:{
-        userName:this.state.userName}})
+      this.props.history.push({pathname:"/home",userDetails:{
+        userName:this.state.userName,
+        email:this.state.email,
+        phoneno:this.state.phoneNumber,
+        countryCode:this.state.countryCode}})
   }
 
 

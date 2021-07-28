@@ -22,6 +22,7 @@ class Signup extends Component{
             emailError:"",
             countryCode:"",
             phoneNo:"",
+            signedIn:false
 
         }
 
@@ -84,8 +85,8 @@ axios.post("http://localhost:3010/signup",signUpRequest)
     //sessionStorage.setItem("custName", response.data.custName);
     if (response.status === 200) {
       console.log("Response is::",response.data);
-    //   this.setState({
-        // loginSuccessful: true,
+      this.setState({
+         signedIn: true,
         // custId: response.data._id,
         // custName: response.data.custName,
         // custPhoneNumber: response.data.custPhoneNumber,
@@ -94,13 +95,13 @@ axios.post("http://localhost:3010/signup",signUpRequest)
         // image:response.data.image,
 
         // token: response.data.token
+       });
+
+
+    // } else {
+    //   this.setState({
+    //     // loginSuccessful: false
     //   });
-
-
-    } else {
-      this.setState({
-        // loginSuccessful: false
-      });
     }
   })
   .catch(error => {
@@ -133,10 +134,21 @@ countryCodeChanged=(event)=>{
 
     
     render(){
+      if(this.state.signedIn){
+        console.log("Signed in");
+        this.props.history.push({pathname:"/home",userDetails:{
+          userName:this.state.userName,
+          email:this.state.email,
+          phoneno:this.state.phoneNo,
+          countryCode:this.state.countryCode
+          }})
+
+        };
+
+
 
         console.log(this.state.password);
         console.log('in render',this.state.dataFetched);
-        let loginsuccess=null;
         let dataFetch=null;
         if(this.state.dataFetched)
         {
@@ -227,7 +239,6 @@ dataFetch=(<span>Data Fetched</span>)
                 <br/>
                 </div>
 
-{loginsuccess}
                 {/* <LoginSuccess email1={this.state.email} email2={this.state.email}/> */}
             </div>
         );

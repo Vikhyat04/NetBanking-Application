@@ -41,7 +41,7 @@ class NavigationBar extends Component {
                         </NavLink>
                     </li>
                     <li>
-                    <NavLink to="/profile" activeClassName="active">
+                    <NavLink to="/MyProfile" activeClassName="active">
                       <FaUserAlt/>
                         <label className="ml-4" > Profile</label>
                         </NavLink>
