@@ -27,13 +27,13 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
     
           },
-          countrycode: {
+          countryCode: {
             type: Sequelize.STRING,
             field: "country_code",
             allowNull: false
     
           },
-          phoneno: {
+          phoneNo: {
             type: Sequelize.INTEGER,
             allowNull: false,
             field: "phone_number",

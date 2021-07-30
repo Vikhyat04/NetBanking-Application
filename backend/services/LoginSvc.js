@@ -19,8 +19,8 @@ module.exports = {
              userName:req.body.userName,
              userEmail:req.body.userEmail,
              userPassword:req.body.userpassword,
-             countrycode:req.body.userCountryCode,
-             phoneno:req.body.userPhoneno,
+             countryCode:req.body.userCountryCode,
+             phoneNo:req.body.userPhoneno,
              createdAt:new Date(),
              createdBy:req.body.userName,
              updatedBy:req.body.userName
