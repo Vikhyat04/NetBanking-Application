@@ -28,7 +28,14 @@ class HomePage extends Component{
           loggedIn: loggedIn
         });
       }
-
+      updateUserDetails=(userDetails)=>{
+console.log(userDetails);
+const userDetails1=this.state.userDetails;
+userDetails1.userName=userDetails.userName;
+this.setState({
+  userDetails:userDetails1
+})
+      }
 render(){
   console.log(this.state.userDetails);
 if(!this.state.loggedIn)
@@ -50,6 +57,7 @@ if(!this.state.loggedIn)
                     <MyProfile
                       {...props}
                       userDetails={this.state.userDetails}
+                      updateUserDetails={this.updateUserDetails}
                     
 
                     />
