@@ -65,22 +65,22 @@ countryCodeChanged=(e)=>{
     render(){
         console.log(this.state.userDetails);
         return(
-            <div className="background-color">
-           
-
-            <h1>Your account</h1>
-          <div className="">
-            <div className="">
+            <div className="background-color1">
+          <span className="alignHeading">Your Account Details</span>
+          <div className="alignProfile" >
+          
+          <br/>
+            <div className="editName">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your name</span>
               <br/>
               <input type="text" value= {this.state.userDetails.userName} onChange={this.userNameChanged}/>
-            </div>
-             <div className="">
+              </div>
+             <div className="editEmail">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your email address</span>
               <br/>
              <input type="text" value= {this.state.userDetails.useremail} onChange={this.emailChanged}/>
               </div>        
-             <div className="">
+             <div className="editCountry">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your Country Code</span><br/>
               <select value={this.state.userDetails.countryCode} onChange={this.countryCodeChanged}>
                 <option value="0">Select Country Code </option>
@@ -88,16 +88,16 @@ countryCodeChanged=(e)=>{
                 <option value="2">India(+91)</option>
                 </select>
                </div>
-             <div className="">
+             <div className="editPhone">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your Phone number</span> <br/>
               <input type="text" value={this.state.userDetails.phoneno} onChange={this.phnNumberChanged}/>
               <br/>
               <br/>
               <br/>
-              <button className="btn saveBtn" onClick={this.onUpdate}>Update</button> 
+              <button className="saveBtn1" onClick={this.onUpdate}>Update</button> 
+              </div>
              </div>
              <br/>
-
 
 
 
@@ -106,7 +106,7 @@ countryCodeChanged=(e)=>{
 </div>
 
 
-            </div>
+         
         )
 
     }
