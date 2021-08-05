@@ -4,6 +4,8 @@ import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
 import HomePage from "./HomePage/HomePage"
 import LandingPage from "./LandingPage/LandingPage"
+import Profile from "./MyProfile/MyProfile"
+
 
 class Main extends Component {
   render() {
@@ -14,7 +16,7 @@ class Main extends Component {
         <Route path="/login" component={Login} exact />
         <Route path="/signup" component={Signup} exact />
         <Route path="/home" component={HomePage} exact />
-        
+             
        
         <div></div>
       </div>

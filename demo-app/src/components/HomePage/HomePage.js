@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import "./HomePage.css";
 import Header from "../Header/Header";
 import { BrowserRouter,HashRouter,Route } from "react-router-dom";
-import NavigationBar from "../NavigationBar/NavigationBar"
-import MyProfile from "../MyProfile/MyProfile"
+import NavigationBar from "../NavigationBar/NavigationBar";
+import MyProfile from "../MyProfile/MyProfile";
+import TransferFunds from "../TransferFunds/TransferFunds";
 //import Picture1 from '../../assets/images/welecomeToInternetBanking.PNG'
 import { Redirect } from "react-router";
+
 
 class HomePage extends Component{
   constructor(props)
@@ -42,7 +44,7 @@ if(!this.state.loggedIn)
   this.props.history.push("/");
     return(
       <HashRouter>
-<div className="background-color">
+<div className="background-color2">
     <Header userDetails={this.state.userDetails} loggedIn={this.state.loggedIn} logOutHeader={this.logOutHome}/>
 
   <div className="homepage-container">
@@ -58,6 +60,19 @@ if(!this.state.loggedIn)
                       {...props}
                       userDetails={this.state.userDetails}
                       updateUserDetails={this.updateUserDetails}
+                    
+
+                    />
+                  )}
+                  exact
+                />
+                    <Route
+                  path="/transfer"
+                  render={props => (
+                    <TransferFunds
+                      {...props}
+                      userDetails={this.state.userDetails}
+                    
                     
 
                     />

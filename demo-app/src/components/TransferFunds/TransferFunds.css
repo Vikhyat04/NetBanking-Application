@@ -1,0 +1,34 @@
+.Transfer-button{
+    margin-top: 20px;
+    margin-left: 150px;
+  background-color: #ff652f;
+  color: white;
+  border-radius: 5px;
+  font-size: 24px;
+  width: auto;
+  text-shadow: 0 -1px 0 #c83400;
+  border-color: #ff652f;
+  box-shadow: 0 2px 0 0 rgb(55 59 63 / 50%);
+  box-sizing: content-box;
+}
+.alignBack{
+    background-color:cccccc;
+    margin-left:267px;
+    margin-top: 80px;
+}
+.HeadingText{
+    font-size: 30px;
+    margin-bottom: 75px;
+    font-style: italic;
+}
+.TransferLabel{
+    font-size: 15px;
+}
+.TransferLabel1{
+    font-size: 15px;
+    margin-left: 105px;
+}
+.amount-input{
+    margin-left: 130px;
+    height: 30px;
+}
