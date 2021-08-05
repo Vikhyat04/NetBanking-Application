@@ -16,7 +16,7 @@ module.exports = {
     },
 updateProfDtlsDB:(updateUserDtlsReq)=>{
 
-let updateSql="update user_details set user_name='"+updateUserDtlsReq.userName+"' where user_email='"+updateUserDtlsReq.userEmail+"'";
+let updateSql="update user_details set user_name='"+updateUserDtlsReq.userName+"' where user_email='"+updateUserDtlsReq.userEmail+"' where phone_number='"+updateUserDtlsReq.phoneNo+"'where country_code'"+updateUserDtlsReq.countryCode;
 console.log(updateSql);
 db.sequelize.query(updateSql,{ type: db.sequelize.QueryTypes.UPDATE })
 .then(response=>{

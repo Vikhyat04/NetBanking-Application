@@ -1,6 +1,8 @@
 
 const db=require("../Models");
 const user=db.userDetails1;
+const userAmountDetails1=db.userAmountDetails;
+const txnDetails1=db.txnDetails;
 module.exports = {
 
 //     login:async (req,res)=>{
@@ -25,6 +27,22 @@ module.exports = {
              createdBy:req.body.userName,
              updatedBy:req.body.userName
          }
+         let userAmountDetails={
+            userEmail:req.body.userEmail,
+            Amount:5000.0,
+            createdAt:new Date(),
+            createdBy:req.body.userName,
+            updatedBy:req.body.userName
+
+         }
+        //  let txnDetails={
+        //     userFromEmail:req.body.userEmail,
+        //     AmountT:5000.0,
+        //     createdAt:new Date(),
+        //     createdBy:req.body.userName,
+        //     updatedBy:req.body.userName
+             
+        //  }
         
        let userExists=false;
        await  user.findAll({ where: { userEmail: req.body.userEmail } })
@@ -43,7 +61,13 @@ if(!userExists){
   // await module.exports.insertSignupRecord(userDetails)
  await  user.create(userDetails).then(response=>{
    console.log(response);
+   userAmountDetails.userId=response.userId;
   })
+ 
+
+  await userAmountDetails1.create(userAmountDetails).then(response=>{
+    console.log(response);
+   })
             }
         res.status(200).send("Success");
             },
