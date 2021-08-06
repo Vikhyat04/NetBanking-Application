@@ -15,6 +15,9 @@ router.post("/signup", loginSvc.signup);
 router.put("/myProfile", myProfSvc.updateProfDtls);
 router.get("/allusers",TransferSvc.getAllDetails );
 
+router.post("/transfer",TransferSvc.transfer);
+//create router for post may be /transfer,  amount,fromUserEmail,toUserEmail,
+
 //getUserDetails
 
 
