@@ -59,7 +59,6 @@ transfer:async (req,res)=>{
          //add userto email
       }
     
-   let userExists=false;
    let fromUserUpdatedAmount;
    let fromUserDetails=await module.exports.fromUserDtlsDb( req.body.fromUserEmail);
    console.log(fromUserDetails[0].Amount);
@@ -71,8 +70,9 @@ transfer:async (req,res)=>{
     await module.exports.updateFromUserAmount(fromUserUpdatedAmount,req.body.fromUserEmail);
    let toUserDetails=   await module.exports.fromUserDtlsDb(req.body.toUserEmail);
    console.log(toUserDetails);
-   toUserDetails[0].Amount= toUserDetails[0].Amount+req.body.amount;
+   toUserDetails[0].Amount= parseInt(toUserDetails[0].Amount)+parseInt(req.body.amount);
    await module.exports.updateToUserAmount(toUserDetails[0].Amount,req.body.toUserEmail);
+//    await module.exports.updateTxnDetails(req.body.amount,req.body.toUserEmail,req.body.fromUserEmail);
   }
   else{
       let errorDetails={
@@ -122,7 +122,7 @@ transfer:async (req,res)=>{
                             .catch(err => {
                                 response.status(500).send({
                                     message:
-                                    err.message || "Some error occurred unabe to transfer funds."
+                                    err.message || "Some error occurred unable to transfer funds."
                                 }
                                 );
                                 }
@@ -138,9 +138,54 @@ transfer:async (req,res)=>{
                                      .catch(err => {
                                          response.status(500).send({
                                              message:
-                                             err.message || "Some error occurred unabe to transfer funds."
+                                             err.message || "Some error occurred unable to transfer funds."
                                          }
                                          );
                                          });
-                                         }
-                                }
+                                         },
+                                
+                                // updateTxnDetails:(aT,TUE,FUE)=>{
+                                //     let updateSql="update txn_details set amount="+aT+" set from_user_email='"+FUE+" set to_user_email='"+TUE;
+                                //     console.log(updateSql);
+                                //     db.sequelize.query(updateSql,{ type: db.sequelize.QueryTypes.UPDATE })
+                                //     .then(response=>{
+                                //         console.log(response.data);
+                                //         })
+                                //      .catch(err => {
+                                //              message:
+                                //              err.message || "Some error occurred unable to store record."
+                                         
+                                //          });
+                                //          }
+                                //         }
+
+
+
+                                getAllTransferDetails:async (req,res)=>{
+                                    console.log("Request is:",req.body);
+                                  const response=    await getTxnDetailsDB(req.body.loginUserEmail);
+res.status(200).send(response);
+                                           },
+                                        
+                                        getTxnDetailsDB:(loginUserEmail)=>{
+                                            return new Promise((resolve,reject)=>{
+                                                let txnDetailsSql;
+                                              //  let txnDetailsSql="select * from txn_details where from_user_email='"+loginUserEmail'"+"or to_user_email='+loginUserEmail;
+                                               db.sequelize.query(txnDetailsSql,{ type: db.sequelize.QueryTypes.SELECT })
+                                                .then(response=>{
+                                               //   console.log(response);
+                                               //   console.log(response.amount);
+                                                return resolve(response);
+                                                //  console.log(fromUserDetails[0].amount);
+                                                
+                                               
+                                            
+                                              
+                                              }).catch(error=>{
+                                                  console.log(error);
+                                              });
+                                            
+                                               })
+                                            
+                                        }
+                                    }

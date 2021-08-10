@@ -14,7 +14,8 @@ class TransferFunds extends Component{
             TargetAmount:"",
             transferto:"",
             allUsers:[],
-            userDetails:this.props.userDetails
+            userDetails:this.props.userDetails,
+            
 
         }
     }
@@ -22,7 +23,7 @@ class TransferFunds extends Component{
       this.beforeTransfer();
     }
     beforeTransfer=()=>{
-       
+      
         axios.get("http://localhost:3010/allusers")
         .then(response => {
             console.log("Status Code : ", response.status);
@@ -42,6 +43,39 @@ class TransferFunds extends Component{
             alert(error.response.data.errorDesc)
           });
             }
+            onTransfer=(e)=>{
+              let transferReq={
+                "amount":this.state.TargetAmount,
+                "toUserEmail":this.state.email,
+                "fromUserEmail":this.state.userDetails.useremail
+                }
+             //   console.log(e);
+               // const transferDetails={toUserEmail:this.state.email,fromUserEmail:this.state.userDetails.useremail,amount:this.state.amount};
+                // console.log(tranferDetails);
+                axios.post("http://localhost:3010/transfer",transferReq)
+                .then(response => {
+                  console.log("Status Code : ", response.status);
+                  console.log(response);
+                  if (response.status === 200) {
+                    console.log("Response is::",response);
+                  //  this.setState({
+                      
+                  //       userName:response.data[0].userName,
+                  //       toUserEmail:this.state.email,
+                  // })              
+              
+                  } else {
+
+                  }
+                })
+                .catch(error => {
+                  console.log(error);
+                  alert(error.response.data.errorDesc)
+
+                });
+
+
+            }
 
             AmountChanged=(e)=>{
                 console.log(e);
@@ -50,9 +84,15 @@ class TransferFunds extends Component{
                         })
                     }
                     transferTo=(event)=>{
-                        this.setState({
-                          transferto: event.target.value
-                        });
+                      console.log(event.target.value);
+                       const userList=this.state.allUsers;
+                 //   const userIndex=   userList.findIndex(user=>user.userEmail===event.target.value);
+                //    allUsers[userIndex].userEmail
+                
+                      this.setState({
+                        email:event.target.value
+                      })
+                    
                       }
 
             render(){
@@ -60,8 +100,9 @@ let trsnferUSerList=null;
 if(this.state.allUsers.length>0){
     trsnferUSerList=this.state.allUsers.map(user=>{
       if(user.userEmail!==this.state.userDetails.useremail){
-        return (<option>{user.userName}</option>)
+        return (<option value={user.userEmail}>{user.userName}</option>)
       }
+      else return null;
     })
   
 }
@@ -88,7 +129,8 @@ return(
                 <span className="TransferLabel"><strong>Choose a user to transfer the amount to.</strong></span>
 <br/>
                 <br/>
-                <select name="Transfer To" value={this.state.transferto} onChange={this.transferTo}>
+                <select name="Transfer To" value={this.state.email} onChange={this.transferTo}>
+                  <option>Select User</option>
                     {trsnferUSerList}
           {/* <option value="0">Select Country Code </option>
             <option value="1">United States(+1)</option>
