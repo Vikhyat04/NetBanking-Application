@@ -5,7 +5,7 @@ import { FcMoneyTransfer } from "react-icons/fc";
 import { FaMoneyCheck } from "react-icons/fa";
 import { FaUserAlt} from "react-icons/fa";
 import { Link, NavLink, Route } from "react-router-dom";
-
+import { RiDashboardFill } from "react-icons/ri";
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -23,10 +23,16 @@ class NavigationBar extends Component {
                      
                       <li>
                       <NavLink to="/balance" activeClassName="active">
-                      <RiBankFill/>
-                        <label className="ml-4" > Balance Enquiry</label>
+                      <RiDashboardFill/>
+                        <label className="ml-4" > Dashboard</label>
                       </NavLink>
                     </li>
+                    </li>
+                    <li>
+                    <NavLink to="/status" activeClassName="active">
+                    <RiBankFill/>
+                        <label className="ml-4" >Balance Enquiry</label>
+                        </NavLink>
                     </li>
                     <li>
                     <NavLink to="/transfer" activeClassName="active">
@@ -34,12 +40,7 @@ class NavigationBar extends Component {
                         <label className="ml-4" >Transfer funds</label>
                         </NavLink>
                     </li>
-                    <li>
-                    <NavLink to="/status" activeClassName="active">
-                      <FaMoneyCheck/>
-                        <label className="ml-4" >Cheque Status</label>
-                        </NavLink>
-                    </li>
+
                     <li>
                     <NavLink to="/MyProfile" activeClassName="active">
                       <FaUserAlt/>

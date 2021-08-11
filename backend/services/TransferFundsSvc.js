@@ -170,7 +170,7 @@ res.status(200).send(response);
                                         getTxnDetailsDB:(loginUserEmail)=>{
                                             return new Promise((resolve,reject)=>{
                                                 let txnDetailsSql;
-                                              //  let txnDetailsSql="select * from txn_details where from_user_email='"+loginUserEmail'"+"or to_user_email='+loginUserEmail;
+                                               let txnDetailsSql="select * from txn_details where from_user_email='"+loginUserEmail"or to_user_email='"+loginUserEmail;
                                                db.sequelize.query(txnDetailsSql,{ type: db.sequelize.QueryTypes.SELECT })
                                                 .then(response=>{
                                                //   console.log(response);

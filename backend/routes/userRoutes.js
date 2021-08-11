@@ -5,7 +5,7 @@ var router = require("express").Router();
 const loginSvc=require("../services/LoginSvc")
 const myProfSvc=require("../services/MyProfileSvc")
 const TransferSvc=require("../services/TransferFundsSvc")
-
+const BalanceEnquiry=require("../services/BalanceEnquirySvc")
 //need to import MyProfSvc
 //http://localhost:3010/signup,
 
@@ -16,7 +16,10 @@ router.put("/myProfile", myProfSvc.updateProfDtls);
 router.get("/allusers",TransferSvc.getAllDetails );
 
 router.post("/transfer",TransferSvc.transfer);
-//create router for post may be /transfer,  amount,fromUserEmail,toUserEmail,
+router.get("/transactionDetails",TransferSvc.getAllTransferDetails)
+
+router.get("/allBalance",BalanceEnquirySvc.getAllUserDetails)
+router.get("/allBalance",BalanceEnquirySvc.getAllUserAmountDetails)
 
 //getUserDetails
 
