@@ -8,6 +8,7 @@ import TransferFunds from "../TransferFunds/TransferFunds";
 import BalanceEnquiry from "../BalanceEnquiry/BalanceEnquiry";
 //import Picture1 from '../../assets/images/welecomeToInternetBanking.PNG'
 import { Redirect } from "react-router";
+import Dashboard from "../Dashboard/Dashboard";
 
 
 class HomePage extends Component{
@@ -90,6 +91,21 @@ if(!this.state.loggedIn)
                     
 
                     />
+                    
+                  )}
+                  exact
+                />
+                    <Route
+                  path="/dashboard"
+                  render={props => (
+                    <Dashboard
+                      {...props}
+                      userDetails={this.state.userDetails}
+                    
+                    
+
+                    />
+                    
                   )}
                   exact
                 />

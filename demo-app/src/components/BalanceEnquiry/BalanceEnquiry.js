@@ -46,8 +46,19 @@ class BalanceEnquiry extends Component{
             render(){
                 return (
                     <div className="backgroundColor2">
-                     
-                       <span style={{color:'black',marginTop:'20px',marginLeft:"250px",fontSize:"50px"}}> {this.state.amount}</span>
+                        
+                    
+                    <div className="alignBal">
+                    <span className="HeadingInfo">WELCOME TO BALANCE ENQUIRY</span>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <span className="BalanceLabel1" ><strong>AVAILABLE(REMAINING) BALANCE:</strong></span>
+                       <br/>
+                       <br/>
+                       <span style={{color:'black',marginTop:'150px',marginLeft:"250px",fontSize:"45px"}}>{this.state.amount}</span>
+        </div>
         </div>
                 )}
 }

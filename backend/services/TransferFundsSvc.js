@@ -168,9 +168,11 @@ res.status(200).send(response);
                                            },
                                         
                                         getTxnDetailsDB:(loginUserEmail)=>{
+                                            console.log("loginUserEmail",loginUserEmail);
                                             return new Promise((resolve,reject)=>{
                                                // let txnDetailsSql;
                                                let txnDetailsSql="select * from txn_details where from_user_email='"+loginUserEmail+"' or to_user_email='"+loginUserEmail+"'";
+                                               console.log(txnDetailsSql);
                                                db.sequelize.query(txnDetailsSql,{ type: db.sequelize.QueryTypes.SELECT })
                                                 .then(response=>{
                                                //   console.log(response);

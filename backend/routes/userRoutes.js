@@ -16,10 +16,11 @@ router.put("/myProfile", myProfSvc.updateProfDtls);
 router.get("/allusers",TransferSvc.getAllDetails );
 
 router.post("/transfer",TransferSvc.transfer);
-router.get("/transactionDetails",TransferSvc.getAllTransferDetails)
+//router.get("/transactionDetails",TransferSvc.getAllTransferDetails)
 
 // router.get("/allBalance",BalanceEnquirySvc.getAllUserDetails)
 router.get("/userBalance",BalanceEnquirySvc.getUserAmountDetails)
+router.get("/userDashboard",TransferSvc.getAllTransferDetails)
 //router.get("/balance",BalanceEnquirySvc.balanceEnq)
 
 //getUserDetails
