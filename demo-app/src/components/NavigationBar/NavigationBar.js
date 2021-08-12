@@ -22,14 +22,14 @@ class NavigationBar extends Component {
                 <li>
                      
                       <li>
-                      <NavLink to="/balance" activeClassName="active">
+                      <NavLink to="/dashboard" activeClassName="active">
                       <RiDashboardFill/>
                         <label className="ml-4" > Dashboard</label>
                       </NavLink>
                     </li>
                     </li>
                     <li>
-                    <NavLink to="/status" activeClassName="active">
+                    <NavLink to="/balance" activeClassName="active">
                     <RiBankFill/>
                         <label className="ml-4" >Balance Enquiry</label>
                         </NavLink>

@@ -5,6 +5,7 @@ import { BrowserRouter,HashRouter,Route } from "react-router-dom";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import MyProfile from "../MyProfile/MyProfile";
 import TransferFunds from "../TransferFunds/TransferFunds";
+import BalanceEnquiry from "../BalanceEnquiry/BalanceEnquiry";
 //import Picture1 from '../../assets/images/welecomeToInternetBanking.PNG'
 import { Redirect } from "react-router";
 
@@ -79,7 +80,19 @@ if(!this.state.loggedIn)
                   )}
                   exact
                 />
-    
+    <Route
+                  path="/balance"
+                  render={props => (
+                    <BalanceEnquiry
+                      {...props}
+                      userDetails={this.state.userDetails}
+                    
+                    
+
+                    />
+                  )}
+                  exact
+                />
               </div>
   </div>
     </div>

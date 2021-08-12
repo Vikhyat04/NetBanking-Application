@@ -163,14 +163,14 @@ transfer:async (req,res)=>{
 
                                 getAllTransferDetails:async (req,res)=>{
                                     console.log("Request is:",req.body);
-                                  const response=    await getTxnDetailsDB(req.body.loginUserEmail);
+                                  const response=    await module.exports.getTxnDetailsDB(req.query.loginUserEmail);
 res.status(200).send(response);
                                            },
                                         
                                         getTxnDetailsDB:(loginUserEmail)=>{
                                             return new Promise((resolve,reject)=>{
-                                                let txnDetailsSql;
-                                               let txnDetailsSql="select * from txn_details where from_user_email='"+loginUserEmail"or to_user_email='"+loginUserEmail;
+                                               // let txnDetailsSql;
+                                               let txnDetailsSql="select * from txn_details where from_user_email='"+loginUserEmail+"' or to_user_email='"+loginUserEmail+"'";
                                                db.sequelize.query(txnDetailsSql,{ type: db.sequelize.QueryTypes.SELECT })
                                                 .then(response=>{
                                                //   console.log(response);
