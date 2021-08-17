@@ -16,3 +16,39 @@
     margin-left:207px;
     margin-top: 80px;
 }
+
+
+
+
+.q1{
+    box-shadow: 0 0 18px -2px black;
+    border-radius: 10px;
+    color:white;
+    height: 110px;
+    width: 130px;
+  }
+  .memory{
+    background-image:linear-gradient(red, purple);
+    font-size: 15px;
+  }
+   .cpu{
+    background-image:linear-gradient(#2EEC10, #1085EC);
+    font-size: 15px;
+  }
+  
+  .grid-container-design {
+    display: grid;
+    grid-template-columns: 305px 2px;
+    grid-template-rows: auto;
+    /* grid-template-areas:
+      "memory cpu thresholdMemory thresholdCPU"
+      "memory cpu thresholdMemory thresholdCPU"
+      "memory cpu thresholdMemory thresholdCPU" ; */
+  }
+
+
+
+
+
+  
+

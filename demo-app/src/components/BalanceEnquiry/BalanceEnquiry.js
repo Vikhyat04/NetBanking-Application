@@ -58,6 +58,20 @@ class BalanceEnquiry extends Component{
                        <br/>
                        <br/>
                        <span style={{color:'black',marginTop:'150px',marginLeft:"270px",fontSize:"45px"}}>{this.state.amount}</span>
+                       
+
+                       {/**/}
+                       <div className="grid-container-design" style={{marginTop:'60px'}}>
+              <div className="memory q1">
+                <center><b>Bank details</b></center>
+                <br/>
+                <span style={{marginLeft:'75px'}}>Hi</span>
+              </div>
+              <div className="cpu q1">
+                <center><b>CPU details</b></center>
+                <span style={{marginLeft:'75px'}}>Bye</span>
+              </div>
+            </div>
         </div>
         </div>
                 )}
