@@ -209,12 +209,7 @@ dataFetch=(<span>Data Fetched</span>)
              <br/>
              <br/>
              
-             <span className="signupLabels">Reconfirm Passsword</span>
-             <br/>
-             <FaLock/>
-             <input type="password" className="signup-input" placeholder="Reconfirm Password" value={this.state.password} onChange={this.emailChanged} />
-           <FiCheckCircle/>
-<br/>
+
 <br/>
 <span className="signupLabels">Here's my <strong>Country Code</strong></span>
                 <br/>

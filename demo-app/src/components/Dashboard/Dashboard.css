@@ -4,12 +4,33 @@
   }
   .flex-item1 {
     margin: 11px 0 0;
-  
+  padding:3px 8px 5px 5px;
     font-size: 16px;
     line-height: 21px;
     color: #999;
+    border-top: 5px;
+    border-color: black;
+    border-radius: 5px;
+    line-height: 30px;
+    border-style: solid;
+    width: 1000px;
   }
   .flex-item1:hover{
-      background-color: red
+      color:red;
+      background-color: black;
   }
-  
+  .HeadingDashInfo{
+    font-size: 30px;
+    margin-left: 350px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    font-style: italic;
+}
+.DashboardLabel1{
+    font-size: 20px;
+    margin-left: 433px;
+}
+.alignDash{
+    margin-left:20px;
+    margin-top: 80px;
+}

@@ -136,11 +136,11 @@ transfer:async (req,res)=>{
                                         console.log(response.data);
                                         })
                                      .catch(err => {
-                                         response.status(500).send({
-                                             message:
-                                             err.message || "Some error occurred unable to transfer funds."
-                                         }
-                                         );
+                                        let errorDetails={
+                                            errorCode:"E04",
+                                            errorDesc:"Some error occurred unabe to update user amount"
+                                        }
+                                        res.status(500).send(errorDetails)
                                          });
                                          },
                                 
@@ -164,7 +164,16 @@ transfer:async (req,res)=>{
                                 getAllTransferDetails:async (req,res)=>{
                                     console.log("Request is:",req.body);
                                   const response=    await module.exports.getTxnDetailsDB(req.query.loginUserEmail);
+                                  if(response.length>0){
 res.status(200).send(response);
+                                  }
+                                  else{
+                                    let errorDetails={
+                                        errorCode:"E03",
+                                        errorDesc:"Some error occurred unabe to transfer funds"
+                                    }
+                                    res.status(500).send(errorDetails)
+                                  }
                                            },
                                         
                                         getTxnDetailsDB:(loginUserEmail)=>{

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Dashboard.css";
 import axios from "axios";
+import moment from "moment";
+import MaterialTable from 'material-table';
 
 class Dashboard extends Component{
 
@@ -13,8 +15,13 @@ class Dashboard extends Component{
             
             userDetails:this.props.userDetails,
             amount:null,
-            txnDetails:[]
-         
+            txnDetails:[],
+             columns : [
+               
+                { title: 'Name', field: 'from_user_email' },
+                { title: 'Amount', field: 'amount' },
+                { title: 'Created Date', field: 'created_date' }
+              ]
         }
     }
     componentDidMount(){
@@ -47,20 +54,43 @@ class Dashboard extends Component{
                 let txnDetails;
                 if (this.state.txnDetails.length > 0) {
                     txnDetails = this.state.txnDetails.map((txn, index) => {
-                    
+                    const createdDate=moment(txn.created_date).format("YYYY-MM-DD HH:mm:ss");
                       return (
-                        <div className="flex-item1" key={txn.txn_id}>
-                          {/* onClick={() => this.props.groupExpDtls(userGroup.group_id)} */}
-                          <span>Amount {txn.amount} credited from {txn.from_user_email} to {txn.to_user_email}</span>
-                        </div>
+                          <div></div>
+                       
                       );
                     });
                 }
+                else{
+                    return(
+                        <div className="alignDash">
+                            <span className="HeadingDashInfo">WELCOME TO DASHBOARD</span>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        <span className="Heading Info" margin-left="100px">No transaction history</span>
+                        </div>
+                    ) ;
+                };
                 return(
-                    <div>
-                        <span>Dashboard</span>
-                        <div className="flex-container1">
-                           {txnDetails}
+                    <div className="alignDash">
+                        <span className="HeadingDashInfo">WELCOME TO DASHBOARD</span>
+                        <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <span className="DashboardLabel1" ><strong>TRANSFER HISTORY:</strong></span>
+                       <br/>
+                       <br/>
+                       <br/>
+                        <div className="flex-container2">
+                         
+                           
+                                <div style={{ maxWidth: '50%' }}>
+                        <MaterialTable columns={this.state.columns} data={this.state.txnDetails} title='Transaction History' />
+                      </div>
+                        
                         </div>
                     </div>
                 );

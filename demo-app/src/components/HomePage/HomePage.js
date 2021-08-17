@@ -19,12 +19,31 @@ class HomePage extends Component{
 
       this.state={
         userDetails:{
-          userName:this.props.location.userDetails.userName,
-          useremail:this.props.location.userDetails.email,
-          phoneno:this.props.location.userDetails.phoneno,
-          countryCode:this.props.location.userDetails.countryCode
+          userName:"",
+          useremail:"",
+          phoneno:"",
+          countryCode:""
+        //  userName:this.props.location.userDetails.userName,
+          //useremail:this.props.location.userDetails.email,
+          //phoneno:this.props.location.userDetails.phoneno,
+          //countryCode:this.props.location.userDetails.countryCode
         },
         loggedIn:true
+      }
+      }
+
+      componentWillMount(){
+      const userDetails=  sessionStorage.getItem("userDetails");
+      console.log(userDetails);
+      if(userDetails!==null){
+      const userDetails1=  JSON.parse(userDetails);
+      const userDetails2={ userName:userDetails1.userName,
+        useremail:userDetails1.email,
+        phoneno:userDetails1.phoneno,
+        countryCode:userDetails1.countryCode}
+      this.setState({
+        userDetails:userDetails2
+      })
       }
       }
       logOutHome=(loggedIn)=>{
@@ -96,7 +115,7 @@ if(!this.state.loggedIn)
                   exact
                 />
                     <Route
-                  path="/dashboard"
+                  path="/"
                   render={props => (
                     <Dashboard
                       {...props}

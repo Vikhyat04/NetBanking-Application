@@ -23,10 +23,15 @@ db.sequelize.query(updateSql,{ type: db.sequelize.QueryTypes.UPDATE })
   console.log(response.data);
   })
  .catch(err => {
-      response.status(500).send({
-        message:
-          err.message || "Some error occurred unabe to update customer details."
-      });
+      // response.status(500).send({
+      //   message:
+      //     err.message || "Some error occurred unabe to update customer details."
+      // });
+      let errorDetails={
+        errorCode:"E02",
+        errorDesc:"Some error occurred unabe to update customer details"
+    }
+    res.status(500).send(errorDetails)
     });
 
 

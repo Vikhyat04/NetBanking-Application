@@ -66,9 +66,10 @@ countryCodeChanged=(e)=>{
         console.log(this.state.userDetails);
         return(
             <div className="background-color1">
-          <span className="alignHeading">Your Account Details</span>
-          <div className="alignProfile" >
           
+          <div className="alignProfile" >
+          <span className="alignHeading">Your Account Details</span>
+          <div className="alignProfContents">
           <br/>
             <div className="editName">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your name</span>
@@ -98,7 +99,7 @@ countryCodeChanged=(e)=>{
               </div>
              </div>
              <br/>
-
+             </div>
 
 
 

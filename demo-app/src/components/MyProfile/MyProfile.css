@@ -2,17 +2,17 @@
     background-color: #cccccc;
   }
   .alignHeading {
-    font-size: 25px;
-    margin-top: 10px;
-    margin-left: 250px;
-    font-weight: bold;
+    font-size: 30px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    font-style: italic;
   }
   .alignProfile{
     margin-top: 60px;
-    margin-left: 400px;
+    margin-left: 380px;
   }
   .alignContent{
-    margin-left: 80px;
+    margin-left: 100px;
   }
   .editEmail {
     margin-top: 15px;
@@ -27,8 +27,8 @@
     margin-top: 15px;
   }
   .saveBtn1 {
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 10px;
+    margin-left: 20px;
   background-color: #ff652f;
   border-radius: 5px;
   font-size: 24px;
@@ -37,4 +37,8 @@
   border-color: #ff652f;
   box-shadow: 0 2px 0 0 rgb(55 59 63 / 50%);
   box-sizing: content-box;
+  color: white;
+  }
+  .alignProfContents{
+    margin-left: 70px;
   }

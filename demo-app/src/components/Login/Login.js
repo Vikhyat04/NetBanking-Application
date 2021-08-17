@@ -153,6 +153,13 @@ this.setState({
       console.log("logged in");
     
       //need to pass useremail,councode,phnno,userid
+      const userDetails={
+        userName:this.state.userName,
+        email:this.state.email,
+        phoneno:this.state.phoneNumber,
+        countryCode:this.state.countryCode
+      }
+      sessionStorage.setItem("userDetails",JSON.stringify(userDetails));
       this.props.history.push({pathname:"/home",userDetails:{
         userName:this.state.userName,
         email:this.state.email,
@@ -205,7 +212,7 @@ dataFetch=(<span>Data Fetched</span>)
 <span className="loginLabels">Password</span>
             <br/>
             <FaLock/>
-                <input type="text"  className="login-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
+                <input type="password"  className="login-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
                 <FiCheckCircle/>
 
                

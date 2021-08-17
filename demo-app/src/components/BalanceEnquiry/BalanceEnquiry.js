@@ -57,7 +57,7 @@ class BalanceEnquiry extends Component{
                     <span className="BalanceLabel1" ><strong>AVAILABLE(REMAINING) BALANCE:</strong></span>
                        <br/>
                        <br/>
-                       <span style={{color:'black',marginTop:'150px',marginLeft:"250px",fontSize:"45px"}}>{this.state.amount}</span>
+                       <span style={{color:'black',marginTop:'150px',marginLeft:"270px",fontSize:"45px"}}>{this.state.amount}</span>
         </div>
         </div>
                 )}
