@@ -18,7 +18,8 @@ class Dashboard extends Component{
             txnDetails:[],
              columns : [
                
-                { title: 'Name', field: 'from_user_email' },
+                { title: 'Credited From', field: 'from_user_email' },
+                {title: 'Credited To', field: 'to_user_email'},
                 { title: 'Amount', field: 'amount' },
                 { title: 'Created Date', field: 'created_date' }
               ]
@@ -80,14 +81,14 @@ class Dashboard extends Component{
                     <br/>
                     <br/>
                     <br/>
-                    <span className="DashboardLabel1" ><strong>TRANSFER HISTORY:</strong></span>
+                    <span className="DashboardLabel1" ><strong>TRANSACTION HISTORY:</strong></span>
                        <br/>
                        <br/>
                        <br/>
                         <div className="flex-container2">
                          
                            
-                                <div style={{ maxWidth: '50%' }}>
+                                <div style={{ maxWidth: '80%' }}>
                         <MaterialTable columns={this.state.columns} data={this.state.txnDetails} title='Transaction History' />
                       </div>
                         
