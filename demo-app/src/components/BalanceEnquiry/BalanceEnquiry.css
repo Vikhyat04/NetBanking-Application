@@ -38,7 +38,7 @@
   
   .grid-container-design {
     display: grid;
-    grid-template-columns: 305px 2px;
+    grid-template-columns: 180px 350px 180px 180px;
     grid-template-rows: auto;
     /* grid-template-areas:
       "memory cpu thresholdMemory thresholdCPU"

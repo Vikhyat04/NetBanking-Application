@@ -57,11 +57,20 @@ class BalanceEnquiry extends Component{
                     <span className="BalanceLabel1" ><strong>AVAILABLE(REMAINING) BALANCE:</strong></span>
                        <br/>
                        <br/>
-                       <span style={{color:'black',marginTop:'150px',marginLeft:"270px",fontSize:"45px"}}>{this.state.amount}</span>
-                       
+                       <span style={{color:'black',marginTop:'150px',marginLeft:"270px",fontSize:"45px"}}>₹{this.state.amount}</span>
+                       </div>
 
                        {/**/}
-                       <div className="grid-container-design" style={{marginTop:'60px'}}>
+                       <div className="grid-container-design" style={{marginTop:'80px',marginLeft:'130px'}}>
+              <div className="memory q1">
+                <center><b>Bank details</b></center>
+                <br/>
+                <span style={{marginLeft:'75px'}}>Hi</span>
+              </div>
+              <div className="cpu q1">
+                <center><b>CPU details</b></center>
+                <span style={{marginLeft:'75px'}}>Bye</span>
+              </div>
               <div className="memory q1">
                 <center><b>Bank details</b></center>
                 <br/>
@@ -72,7 +81,7 @@ class BalanceEnquiry extends Component{
                 <span style={{marginLeft:'75px'}}>Bye</span>
               </div>
             </div>
-        </div>
+        
         </div>
                 )}
 }
