@@ -186,7 +186,7 @@ dataFetch=(<span>Data Fetched</span>)
 <br/>
 <span className="signupLabels">Here's my <strong>email address</strong></span>
 <br/>
-<MdEmail style={{height:'15px',width:'15px'}}/>
+<MdEmail style={{height:'13px',width:'11px'}}/>
           <input
             type="text"
             name="custEmail"
@@ -213,7 +213,7 @@ dataFetch=(<span>Data Fetched</span>)
 <br/>
 <span className="signupLabels">Here's my <strong>Country Code</strong></span>
                 <br/>
-                <select name="countryCodes" value={this.state.countryCode} onChange={this.countryCodeChanged}>
+                <select name="countryCodes" style={{width:"200px"}} value={this.state.countryCode} onChange={this.countryCodeChanged}>
           <option value="0">Select Country Code </option>
             <option value="1">United States(+1)</option>
             <option value="2">India(+91)</option>

@@ -11,6 +11,7 @@ class MyProfile extends Component{
 
         this.state={
                 userDetails:this.props.userDetails,
+                detailsUpdated:false
         }
     }
 
@@ -20,8 +21,13 @@ class MyProfile extends Component{
 console.log(this.state.userDetails);
 axios.put("http://localhost:3010/myProfile",this.state.userDetails).then(response=>{
   if (response.status === 200) {
+    alert("Details updated successfully");
     console.log(response);
     this.props.updateUserDetails(this.state.userDetails);
+
+    this.setState({
+      updateUserDetails:true
+    })
   }
   else{}
 })
@@ -63,6 +69,9 @@ countryCodeChanged=(e)=>{
   })
 }
     render(){
+
+if(this.state.updateUserDetails)
+      this.props.history.push("/");
         console.log(this.state.userDetails);
         return(
             <div className="background-color1">

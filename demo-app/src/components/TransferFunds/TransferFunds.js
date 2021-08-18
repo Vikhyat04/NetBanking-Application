@@ -58,6 +58,7 @@ class TransferFunds extends Component{
                   console.log(response);
                   if (response.status === 200) {
                     console.log("Response is::",response);
+                  alert("Transfer success");
                   //  this.setState({
                       
                   //       userName:response.data[0].userName,
@@ -129,7 +130,7 @@ return(
                 <span className="TransferLabel"><strong>Choose a user to transfer the amount to.</strong></span>
 <br/>
                 <br/>
-                <select name="Transfer To" value={this.state.email} onChange={this.transferTo}>
+                <select name="Transfer To" style={{width:"280px"}} value={this.state.email} onChange={this.transferTo}>
                   <option>Select User</option>
                     {trsnferUSerList}
           {/* <option value="0">Select Country Code </option>

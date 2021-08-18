@@ -191,7 +191,7 @@ dataFetch=(<span>Data Fetched</span>)
           <br/>
           <br/>
           <div className="loginContent">
-          <span className="login-text1">Welcome to __________-</span>
+          <span className="login-text1">Welcome to <strong>EzFunds</strong></span>
           <br/>
           <br/>
           <br/>
@@ -201,7 +201,7 @@ dataFetch=(<span>Data Fetched</span>)
              <span className="loginLabels">Email address</span>
              <br/>
            
-             <MdEmail style={{height:'15px',width:'15px'}}/>
+             <MdEmail style={{height:'15px',width:'11px'}}/>
              <input type="text" className="login-input" placeholder="Email"  value={this.state.email} onChange={this.emailChanged} />
           {emailCheck}
           <br/>
