@@ -38,7 +38,7 @@ render(){
     </div>
  <br/>
 
- <div className="text2"> Internet Banking made Conveniet,Easy & Secure with EzFunds</div>
+ <div className="text2"> Internet Banking made Conveniet,Easy & Secure with <strong>EzFunds</strong></div>
  
 
  <Link to ="/signup">

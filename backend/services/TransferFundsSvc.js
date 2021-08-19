@@ -62,7 +62,7 @@ transfer:async (req,res)=>{
    let fromUserUpdatedAmount;
    let fromUserDetails=await module.exports.fromUserDtlsDb( req.body.fromUserEmail);
    console.log(fromUserDetails[0].Amount);
-   if(fromUserDetails[0].Amount>req.body.amount){
+   if(fromUserDetails[0].Amount>req.body.amount && req.body.amount>0){
     TransferStatus=true
     fromUserUpdatedAmount=fromUserDetails[0].Amount-req.body.amount
 

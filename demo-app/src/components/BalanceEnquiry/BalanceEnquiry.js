@@ -12,7 +12,8 @@ class BalanceEnquiry extends Component{
     
             
             userDetails:this.props.userDetails,
-            amount:null
+            amount:0,
+            USDAmount:0,
          
         }
     }
@@ -30,7 +31,7 @@ class BalanceEnquiry extends Component{
              this.setState({
                 
                 amount:response.data[0].Amount,
-
+                 USDAmount:Math.round(response.data[0].Amount/74),
               
             })        
             } else {
@@ -63,22 +64,24 @@ class BalanceEnquiry extends Component{
                        {/**/}
                        <div className="grid-container-design" style={{marginTop:'80px',marginLeft:'130px'}}>
               <div className="memory q1">
-                <center><b>Bank details</b></center>
+                <center><b>USD(United states dollars)</b></center>
                 <br/>
-                <span style={{marginLeft:'75px'}}>Hi</span>
+                <span style={{marginLeft:'35px'}}>${this.state.USDAmount}</span>
               </div>
               <div className="cpu q1">
-                <center><b>CPU details</b></center>
-                <span style={{marginLeft:'75px'}}>Bye</span>
+                <center><b>EUR(Eurropean Euro)</b></center>
+                <br/>
+                <span style={{marginLeft:'75px'}}>0</span>
               </div>
               <div className="memory q1">
-                <center><b>Bank details</b></center>
+                <center><b>CNY(Chinese Yuan Renminbi)</b></center>
                 <br/>
-                <span style={{marginLeft:'75px'}}>Hi</span>
+                <span style={{marginLeft:'75px'}}>0</span>
               </div>
               <div className="cpu q1">
-                <center><b>CPU details</b></center>
-                <span style={{marginLeft:'75px'}}>Bye</span>
+                <center><b>GBP(United Kingdom Pound)</b></center>
+                <br/>
+                <span style={{marginLeft:'75px'}}>0</span>
               </div>
             </div>
         

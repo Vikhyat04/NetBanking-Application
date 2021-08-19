@@ -14,7 +14,9 @@ class TransferFunds extends Component{
             TargetAmount:"",
             transferto:"",
             allUsers:[],
+            updateTransfer:false,
             userDetails:this.props.userDetails,
+            
             
 
         }
@@ -58,21 +60,21 @@ class TransferFunds extends Component{
                   console.log(response);
                   if (response.status === 200) {
                     console.log("Response is::",response);
-                  alert("Transfer success");
-                  //  this.setState({
-                      
-                  //       userName:response.data[0].userName,
-                  //       toUserEmail:this.state.email,
-                  // })              
-              
-                  } else {
+                    alert("Transfer success");
+                 
+                    this.setState({
+                      updateTransfer:true
+                      })
+                 
+                  } 
+                  else {
 
                   }
                 })
                 .catch(error => {
                   console.log(error);
                   alert(error.response.data.errorDesc)
-
+                  // Catching error here for some reasn..don't know why it is passing in this block
                 });
 
 
@@ -97,8 +99,12 @@ class TransferFunds extends Component{
                       }
 
             render(){
-let trsnferUSerList=null;
-if(this.state.allUsers.length>0){
+              if(this.state.updateTransfer)
+                 this.props.history.push("/");
+                 console.log(this.state.userDetails);
+
+        let trsnferUSerList=null;
+        if(this.state.allUsers.length>0){
     trsnferUSerList=this.state.allUsers.map(user=>{
       if(user.userEmail!==this.state.userDetails.useremail){
         return (<option value={user.userEmail}>{user.userName}</option>)
@@ -130,7 +136,7 @@ return(
                 <span className="TransferLabel"><strong>Choose a user to transfer the amount to.</strong></span>
 <br/>
                 <br/>
-                <select name="Transfer To" style={{width:"280px"}} value={this.state.email} onChange={this.transferTo}>
+                <select name="Transfer To" style={{width:"250px" , height:"30px"}} value={this.state.email} onChange={this.transferTo}>
                   <option>Select User</option>
                     {trsnferUSerList}
           {/* <option value="0">Select Country Code </option>

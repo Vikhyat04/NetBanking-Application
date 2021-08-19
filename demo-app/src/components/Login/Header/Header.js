@@ -25,7 +25,7 @@ constructor(props)
         </Link>
         
 
-                <span className="sampleApp">Sample app</span>
+                <span className="sampleApp">NetBanking-Application</span>
                 
                  <Link to ="/login">
                 <button type="button" className="HeaderButton1" >Log in</button>
