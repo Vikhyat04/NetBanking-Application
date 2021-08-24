@@ -83,16 +83,16 @@ if(this.state.updateUserDetails)
             <div className="editName">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your name</span>
               <br/>
-              <input type="text" value= {this.state.userDetails.userName} onChange={this.userNameChanged}/>
+              <input type="text" className="size1" value= {this.state.userDetails.userName} onChange={this.userNameChanged}/>
               </div>
              <div className="editEmail">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your email address</span>
               <br/>
-             <input type="text" value= {this.state.userDetails.useremail} onChange={this.emailChanged}/>
+             <input type="text" className="size1" value= {this.state.userDetails.useremail} onChange={this.emailChanged}/>
               </div>        
              <div className="editCountry">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your Country Code</span><br/>
-              <select value={this.state.userDetails.countryCode} onChange={this.countryCodeChanged}>
+              <select value={this.state.userDetails.countryCode} className="size1" onChange={this.countryCodeChanged}>
                 <option value="0">Select Country Code </option>
                 <option value="1">United States(+1)</option>
                 <option value="2">India(+91)</option>
@@ -100,7 +100,7 @@ if(this.state.updateUserDetails)
                </div>
              <div className="editPhone">
               <span style={{fontWeight:'bold',fontSize:'18px'}}>Your Phone number</span> <br/>
-              <input type="text" value={this.state.userDetails.phoneno} onChange={this.phnNumberChanged}/>
+              <input type="text"  className="size1" value={this.state.userDetails.phoneno} onChange={this.phnNumberChanged}/>
               <br/>
               <br/>
               <br/>

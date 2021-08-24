@@ -6,7 +6,7 @@ import { FaLock } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import { MdEmail} from "react-icons/md";
 import axios from "axios";
-
+import validator from "validator";
 
 class Login extends Component{
 
@@ -32,25 +32,34 @@ class Login extends Component{
     emailChanged=(e)=>{
         console.log(e);
         const uservalue=e.target.value;
-        let emailCheck=false;
-        let emailValidation=new RegExp("^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$");
+        let emailCheck;
         let emailValid;
-        console.log(emailValidation.exec(uservalue));
-        if (emailValidation.exec(uservalue) === null)
+
+     
+        if (validator.isEmail(uservalue)||uservalue.length==0)
         {
-        emailValid=false;
+        emailValid=true;
+        emailCheck=true;
+        if(uservalue.length==0)
+        {
+            emailCheck=false;
+        }
+     //   errorMsg="Email is not in proper format. Please enter correct format"
        
       }
+    
       else{
-      emailValid=true;
+      emailValid=false;
+      emailCheck=false;
   
-    }
-        if(uservalue.length>5)
-        emailCheck=true;
+            }
+        // if(uservalue.length>5)
+        // emailCheck=true;
         this.setState({
             email:uservalue,
             emailCheck:emailCheck,
             emailValid:emailValid
+           
         })
        
     }
@@ -86,6 +95,7 @@ this.setState({
     }
     onLogin=(e)=>{
 console.log(e);
+//if(y=this.emeailvalid&&this.passwordValid)
 const loginRequest={userEmail:this.state.email,userpassword:this.state.password};
 console.log(loginRequest);
 axios.post("http://localhost:3010/login",loginRequest)
@@ -145,8 +155,9 @@ this.setState({
 
         let loginsuccess=null;
         let dataFetch=null;
-        let emailCheck=null;
+       let emailCheck=null;
         let emailError=null;
+        let hold=null;
 
 
   if(this.state.loggedIn){
@@ -170,10 +181,11 @@ this.setState({
 
         if(!this.state.emailValid){
             emailError=(<span style={{color:'red'}}>Email is invalid</span>)
+            // emailError=(<span style={{color:'red'}}>{this.state.errorMsg}}</span>)
         }
         if(this.state.emailCheck)
         {
-            emailCheck=(   <FiCheckCircle style={{color:'green'}}/>);
+           hold=(   <FiCheckCircle style={{color:'green'}}/>);
         }
         if(this.state.dataFetched)
         {
@@ -203,7 +215,7 @@ dataFetch=(<span>Data Fetched</span>)
            
              <MdEmail style={{height:'15px',width:'11px'}}/>
              <input type="text" className="login-input" placeholder="Email"  value={this.state.email} onChange={this.emailChanged} />
-          {emailCheck}
+          {hold}
           <br/>
           {emailError}
            

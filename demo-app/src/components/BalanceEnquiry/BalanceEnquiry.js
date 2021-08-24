@@ -14,6 +14,9 @@ class BalanceEnquiry extends Component{
             userDetails:this.props.userDetails,
             amount:0,
             USDAmount:0,
+            EURAmount:0,
+            CNYAmount:0,
+            GBPAmount:0,
          
         }
     }
@@ -32,6 +35,9 @@ class BalanceEnquiry extends Component{
                 
                 amount:response.data[0].Amount,
                  USDAmount:Math.round(response.data[0].Amount/74),
+                 EURAmount:Math.round(response.data[0].Amount/87),
+                 CNYAmount:Math.round(response.data[0].Amount*0.087),
+                 GBPAmount:Math.round(response.data[0].Amount/101.5),
               
             })        
             } else {
@@ -64,24 +70,24 @@ class BalanceEnquiry extends Component{
                        {/**/}
                        <div className="grid-container-design" style={{marginTop:'80px',marginLeft:'130px'}}>
               <div className="memory q1">
-                <center><b>USD(United states dollars)</b></center>
+                <center><b>USD</b></center>
                 <br/>
-                <span style={{marginLeft:'35px'}}>${this.state.USDAmount}</span>
+                <span style={{marginLeft:'52px'}}>${this.state.USDAmount}</span>
               </div>
               <div className="cpu q1">
-                <center><b>EUR(Eurropean Euro)</b></center>
+                <center><b>EUR</b></center>
                 <br/>
-                <span style={{marginLeft:'75px'}}>0</span>
+                <span style={{marginLeft:'52px'}}>€{this.state.EURAmount}</span>
               </div>
               <div className="memory q1">
-                <center><b>CNY(Chinese Yuan Renminbi)</b></center>
+                <center><b>CNY</b></center>
                 <br/>
-                <span style={{marginLeft:'75px'}}>0</span>
+                <span style={{marginLeft:'52px'}}>¥{this.state.CNYAmount}</span>
               </div>
               <div className="cpu q1">
-                <center><b>GBP(United Kingdom Pound)</b></center>
+                <center><b>GBP</b></center>
                 <br/>
-                <span style={{marginLeft:'75px'}}>0</span>
+                <span style={{marginLeft:'52px'}}>£{this.state.GBPAmount}</span>
               </div>
             </div>
         

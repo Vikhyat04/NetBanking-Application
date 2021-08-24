@@ -6,6 +6,7 @@ import { FaLock } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
 import { MdEmail} from "react-icons/md";
+import { AiFillPhone } from "react-icons/ai";
 import axios from "axios";
 
 class Signup extends Component{
@@ -213,7 +214,7 @@ dataFetch=(<span>Data Fetched</span>)
 <br/>
 <span className="signupLabels">Here's my <strong>Country Code</strong></span>
                 <br/>
-                <select name="countryCodes" style={{width:"200px"}} value={this.state.countryCode} onChange={this.countryCodeChanged}>
+                <select name="countryCodes" style={{width:"205px",marginLeft:"5px", height:"30px"}} value={this.state.countryCode} onChange={this.countryCodeChanged}>
           <option value="0">Select Country Code </option>
             <option value="1">United States(+1)</option>
             <option value="2">India(+91)</option>
@@ -222,6 +223,7 @@ dataFetch=(<span>Data Fetched</span>)
           <br/>
           <span className="signupLabels">Here's my <strong>Phone Number</strong></span>
 <br/>
+<AiFillPhone style={{height:'13px',width:'11px'}}/>
           <input
             type="text"
             placeholder="Phone Number"

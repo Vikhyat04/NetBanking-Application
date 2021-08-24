@@ -125,7 +125,7 @@ return(
                    <br/>
                 
 
-                   <input type="text" className="amount-input" placeholder="Amount to be transfered"  value={this.state.transferAmount} onChange={this.AmountChanged} />
+                   <input type="text" style={{height:"30"}} className="amount-input" placeholder="Amount to be transfered"  value={this.state.transferAmount} onChange={this.AmountChanged} />
 
                 <br/>
                 <br/>
@@ -136,7 +136,7 @@ return(
                 <span className="TransferLabel"><strong>Choose a user to transfer the amount to.</strong></span>
 <br/>
                 <br/>
-                <select name="Transfer To" style={{width:"250px" , height:"30px"}} value={this.state.email} onChange={this.transferTo}>
+                <select name="Transfer To" style={{width:"250px" , height:"30px",marginLeft:"80px"}} value={this.state.email} onChange={this.transferTo}>
                   <option>Select User</option>
                     {trsnferUSerList}
           {/* <option value="0">Select Country Code </option>
