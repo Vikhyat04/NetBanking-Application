@@ -26,6 +26,7 @@ class Login extends Component{
             phoneNumber:"",
             passwordValid:false,
             errorMsg:"Please enter a valid email or password",
+            passCheck:false,
 
         }
 
@@ -92,14 +93,20 @@ this.setState({
     passwordChanged=(event)=>{
 console.log(event);
         let pval=false;
-        if(event.target.value.length>2){
+        let pcheck=false;
+        if(event.target.value.length>2||event.target.value.length==0){
             pval=true;
-
+            pcheck=true;
+        }
+        if(event.target.value.length==0)
+        {
+            pcheck=false;
         }
 
         this.setState({
             password:event.target.value,
             passwordValid:pval,
+            passCheck:pcheck,
 
         })
     }
@@ -175,6 +182,8 @@ this.setState({
        let emailCheck=null;
         let emailError=null;
         let hold=null;
+        let passError=null;
+        let hold2=null;
 
 
   if(this.state.loggedIn){
@@ -204,6 +213,17 @@ this.setState({
         {
            hold=(   <FiCheckCircle style={{color:'green'}}/>);
         }
+
+        if(!this.state.passwordValid){
+            
+            passError=(<span style={{color:'red'}}>Password is invalid</span>)
+        }
+    
+            if(this.state.passCheck){
+                hold2=(   <FiCheckCircle style={{color:'green'}}/>);
+            }
+           
+        
         if(this.state.dataFetched)
         {
 dataFetch=(<span>Data Fetched</span>)
@@ -242,10 +262,9 @@ dataFetch=(<span>Data Fetched</span>)
             <br/>
             <FaLock/>
                 <input type="password" minLength={5}  className="login-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
-                <FiCheckCircle/>
-
-               
-                <br/>
+                {hold2}
+          <br/>
+          {passError}
                 <br/>
                 <button type="button" className="login-button" onClick={this.onLogin}>Submit</button>
                 <br/>

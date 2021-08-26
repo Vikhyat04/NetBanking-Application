@@ -125,7 +125,7 @@ return(
                    <br/>
                 
 
-                   <input type="text" style={{height:"30"}} className="amount-input" placeholder="Amount to be transfered"  value={this.state.transferAmount} onChange={this.AmountChanged} />
+                   <input type="text" className="amount-input" placeholder="Amount to be transfered"  value={this.state.transferAmount} onChange={this.AmountChanged} />
 
                 <br/>
                 <br/>

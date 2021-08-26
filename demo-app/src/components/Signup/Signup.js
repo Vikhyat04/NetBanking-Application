@@ -28,6 +28,11 @@ class Signup extends Component{
             emailCheck:false,
             emailError:"",
             emailValid:true,
+            passwordValid:false,
+            errorMsg:"Please enter a valid email or password",
+            passCheck:false,
+            userCheck:false,
+            phncheck:false,
 
         }
 
@@ -35,9 +40,14 @@ class Signup extends Component{
     //e is event and has many prop..therefore use the target value to get its value..compare to real life event exampe..check in inspect
     usernameChanged=(e)=>{
         console.log(e);
+        let uCheck=false;
+        if(e.target.value.length>0){
+          uCheck=true;
+        }
         const uservalue=e.target.value;
         this.setState({
-            userName:uservalue
+            userName:uservalue,
+            userCheck:uCheck,
         })
     }
     componentWillMount(){
@@ -58,28 +68,42 @@ this.setState({
         
     }
     passwordChanged=(event)=>{
-//console.log(event);
+      console.log(event);
+      let pval=false;
+      let pcheck=false;
+      if(event.target.value.length>2||event.target.value.length==0){
+          pval=true;
+          pcheck=true;
+      }
+      if(event.target.value.length==0)
+      {
+          pcheck=false;
+      }
         this.setState({
-            password:event.target.value
+            password:event.target.value,
+            passwordValid:pval,
+            passCheck:pcheck,
         })
     }
     onSignUp=(e)=>{
-        let emailError=""
-        let emailValidation=new RegExp("^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$");
-        let isValid=emailValidation.test(this.state.email)
-        console.log(isValid)
-        if(isValid)
-        {
-            emailError="correct"
-            this.setState({emailError:emailError})
-            console.log(emailError)
-        }
-        else{
-            emailError="wrong"
-            this.setState({emailError:emailError})
-            console.log(emailError)
-        }
-        console.log(e);
+      if(this.state.emailCheck&&this.state.passwordValid)
+{
+        // let emailError=""
+        // let emailValidation=new RegExp("^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$");
+        // let isValid=emailValidation.test(this.state.email)
+        // console.log(isValid)
+        // if(isValid)
+        // {
+        //     emailError="correct"
+        //     this.setState({emailError:emailError})
+        //     console.log(emailError)
+        // }
+        // else{
+        //     emailError="wrong"
+        //     this.setState({emailError:emailError})
+        //     console.log(emailError)
+        // }
+        // console.log(e);
 const signUpRequest={userEmail:this.state.email,userpassword:this.state.password,userName:this.state.userName,userCountryCode:this.state.countryCode,userPhoneno:this.state.phoneNo};
 console.log(signUpRequest);
 axios.post("http://localhost:3010/signup",signUpRequest)
@@ -117,7 +141,10 @@ axios.post("http://localhost:3010/signup",signUpRequest)
     //   errorMsg: error.response.data.desc
     // });
   });
-        
+}
+else{
+    alert("Please enter a valid email or password");
+}
 
     }
     emailChanged=(event)=>{
@@ -156,8 +183,20 @@ countryCodeChanged=(event)=>{
   }
 
   phoneNoChanged=(event)=>{
+    let p1Check;
+ 
+    if (event.target.value.length>8)
+    {
+    p1Check=true;
+  }
+
+  else{
+  p1Check=false;
+
+        }
     this.setState({
-      phoneNo: event.target.value
+      phoneNo: event.target.value,
+      phncheck:p1Check,
     });
   }
 
@@ -165,6 +204,10 @@ countryCodeChanged=(event)=>{
     render(){
       let emailError=null;
         let hold=null;
+        let passError=null;
+        let hold2=null;
+        let hold3=null;
+        let hold4=null;
       if(this.state.signedIn){
         console.log("Signed in");
         this.props.history.push({pathname:"/home",userDetails:{
@@ -183,8 +226,20 @@ countryCodeChanged=(event)=>{
       {
          hold=(   <FiCheckCircle style={{color:'green'}}/>);
       }
+      if(!this.state.passwordValid){
+            
+        passError=(<span style={{color:'red'}}>Password is invalid</span>)
+    }
 
-
+        if(this.state.passCheck){
+            hold2=(   <FiCheckCircle style={{color:'green'}}/>);
+        }
+        if(this.state.userCheck){
+          hold3=(   <FiCheckCircle style={{color:'green'}}/>);
+      }
+      if(this.state.phncheck){
+        hold4=(   <FiCheckCircle style={{color:'green'}}/>);
+    }
 
         console.log(this.state.password);
         console.log('in render',this.state.dataFetched);
@@ -219,7 +274,7 @@ dataFetch=(<span>Data Fetched</span>)
              <br/>
              <FaUser/>
              <input type="text" className="signup-input" placeholder="Username" value={this.state.userName} onChange={this.usernameChanged} required />
-           <FiCheckCircle/>
+             {hold3}
 <br/>
 
 <br/>
@@ -237,16 +292,17 @@ dataFetch=(<span>Data Fetched</span>)
           <br/>
           {emailError}
              <br/>
-<br/>
+
              
 
              <span className="signupLabels">Here's my <strong>Password</strong></span>
             <br/>
             <FaLock/>
                 <input type="password" minLength={5} className="signup-input" placeholder="Password" value={this.state.password}  onChange={this.passwordChanged} />
-<FiCheckCircle/>
-             <br/>
-             <br/>
+                {hold2}
+          <br/>
+          {passError}
+  
              
 
 <br/>
@@ -269,6 +325,7 @@ dataFetch=(<span>Data Fetched</span>)
             className="signup-input"
             onChange={this.phoneNoChanged}
           ></input>
+          {hold4}
           <br/>
           <br/>
                 <button type="button" className="signup-button" onClick={this.onSignUp}>Submit</button>
