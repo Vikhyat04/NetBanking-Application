@@ -8,6 +8,7 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail} from "react-icons/md";
 import { AiFillPhone } from "react-icons/ai";
 import axios from "axios";
+import validator from "validator";
 
 class Signup extends Component{
 
@@ -23,7 +24,10 @@ class Signup extends Component{
             emailError:"",
             countryCode:"",
             phoneNo:"",
-            signedIn:false
+            signedIn:false,
+            emailCheck:false,
+            emailError:"",
+            emailValid:true,
 
         }
 
@@ -117,8 +121,32 @@ axios.post("http://localhost:3010/signup",signUpRequest)
 
     }
     emailChanged=(event)=>{
+      console.log(event);
+        const Evalue=event.target.value;
+        let emailCheck;
+        let emailValid;
+
+     
+        if (validator.isEmail(Evalue)||Evalue.length==0)
+        {
+        emailValid=true;
+        emailCheck=true;
+        if(Evalue.length==0)
+        {
+            emailCheck=false;
+        }
+      }
+    
+      else{
+      emailValid=false;
+      emailCheck=false;
+  
+            }
 this.setState({
-    email:event.target.value
+    email:event.target.value,
+    emailCheck:emailCheck,
+            emailValid:emailValid
+
 })
     }
 countryCodeChanged=(event)=>{
@@ -135,6 +163,8 @@ countryCodeChanged=(event)=>{
 
     
     render(){
+      let emailError=null;
+        let hold=null;
       if(this.state.signedIn){
         console.log("Signed in");
         this.props.history.push({pathname:"/home",userDetails:{
@@ -145,6 +175,14 @@ countryCodeChanged=(event)=>{
           }})
 
         };
+        if(!this.state.emailValid){
+          emailError=(<span style={{color:'red'}}>Email is invalid</span>)
+          // emailError=(<span style={{color:'red'}}>{this.state.errorMsg}}</span>)
+      }
+      if(this.state.emailCheck)
+      {
+         hold=(   <FiCheckCircle style={{color:'green'}}/>);
+      }
 
 
 
@@ -177,10 +215,10 @@ dataFetch=(<span>Data Fetched</span>)
               <br/>
 
   
-             <span className="signupLabels">Hi there! My name is</span>
+             <span className="signupLabels">Hi there! My <strong>name</strong> is</span>
              <br/>
              <FaUser/>
-             <input type="email" className="signup-input" placeholder="Username" value={this.state.userName} onChange={this.usernameChanged} required />
+             <input type="text" className="signup-input" placeholder="Username" value={this.state.userName} onChange={this.usernameChanged} required />
            <FiCheckCircle/>
 <br/>
 
@@ -189,15 +227,15 @@ dataFetch=(<span>Data Fetched</span>)
 <br/>
 <MdEmail style={{height:'13px',width:'11px'}}/>
           <input
-            type="text"
+            type="email"
             name="custEmail"
             placeholder="Email"
             className="signup-input"
             onChange={this.emailChanged}
           ></input>
-
-            
-<FiCheckCircle/>
+{hold}
+          <br/>
+          {emailError}
              <br/>
 <br/>
              
@@ -226,6 +264,7 @@ dataFetch=(<span>Data Fetched</span>)
 <AiFillPhone style={{height:'13px',width:'11px'}}/>
           <input
             type="text"
+            minLength={8}
             placeholder="Phone Number"
             className="signup-input"
             onChange={this.phoneNoChanged}

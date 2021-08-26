@@ -23,7 +23,9 @@ class Login extends Component{
             loggedIn:false,
             userName:"",
             countryCode:"",
-            phoneNumber:""
+            phoneNumber:"",
+            passwordValid:false,
+            errorMsg:"Please enter a valid email or password",
 
         }
 
@@ -44,7 +46,7 @@ class Login extends Component{
         {
             emailCheck=false;
         }
-     //   errorMsg="Email is not in proper format. Please enter correct format"
+        
        
       }
     
@@ -88,15 +90,24 @@ this.setState({
         
     }
     passwordChanged=(event)=>{
-//console.log(event);
+console.log(event);
+        let pval=false;
+        if(event.target.value.length>2){
+            pval=true;
+
+        }
+
         this.setState({
-            password:event.target.value
+            password:event.target.value,
+            passwordValid:pval,
+
         })
     }
     onLogin=(e)=>{
 console.log(e);
-//if(y=this.emeailvalid&&this.passwordValid)
-const loginRequest={userEmail:this.state.email,userpassword:this.state.password};
+if(this.state.emailCheck&&this.state.passwordValid)
+{
+    const loginRequest={userEmail:this.state.email,userpassword:this.state.password};
 console.log(loginRequest);
 axios.post("http://localhost:3010/login",loginRequest)
 .then(response => {
@@ -143,6 +154,12 @@ axios.post("http://localhost:3010/login",loginRequest)
     //   errorMsg: error.response.data.desc
     // });
   });
+
+}
+else{
+    alert("Please enter a valid email or password");
+}
+
     }
     changepassword=(pass)=>{
 console.log(pass);
@@ -214,7 +231,7 @@ dataFetch=(<span>Data Fetched</span>)
              <br/>
            
              <MdEmail style={{height:'15px',width:'11px'}}/>
-             <input type="text" className="login-input" placeholder="Email"  value={this.state.email} onChange={this.emailChanged} />
+             <input type="email" className="login-input" placeholder="Email"  value={this.state.email} onChange={this.emailChanged} />
           {hold}
           <br/>
           {emailError}
@@ -224,7 +241,7 @@ dataFetch=(<span>Data Fetched</span>)
 <span className="loginLabels">Password</span>
             <br/>
             <FaLock/>
-                <input type="password"  className="login-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
+                <input type="password" minLength={5}  className="login-input" placeholder="Password" value={this.state.password} onChange={this.passwordChanged} />
                 <FiCheckCircle/>
 
                
