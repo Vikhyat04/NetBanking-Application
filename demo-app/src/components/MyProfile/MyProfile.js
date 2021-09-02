@@ -2,6 +2,7 @@ import HomePage from "../HomePage/HomePage"
 import React, { Component } from "react";
 import "./MyProfile.css";
 import axios from "axios";
+import validator from "validator";
 
 class MyProfile extends Component{
     constructor(props)
@@ -11,12 +12,14 @@ class MyProfile extends Component{
 
         this.state={
                 userDetails:this.props.userDetails,
-                detailsUpdated:false
+                detailsUpdated:false,
+                emailValid:true,
+                phnValid:true,
         }
     }
 
     onUpdate=(e)=>{
-          
+          if(this.state.emailValid && this.state.phnValid){
 //const userDetails=this.state.userDetails;
 console.log(this.state.userDetails);
 axios.put("http://localhost:3010/myProfile",this.state.userDetails).then(response=>{
@@ -35,21 +38,46 @@ axios.put("http://localhost:3010/myProfile",this.state.userDetails).then(respons
   console.log(error.response);
   alert(error.response.data.desc)
 });
+          }
+          else{
+            alert("Invalid input")
+          }
     };
     phnNumberChanged=(e)=>{
-
+let phnV=false;
         const userDetails=this.state.userDetails;
         userDetails.phoneno=e.target.value;
+        if ((e.target.value.length<=10 && e.target.value.length>6)){
+          phnV=true;
+
+        }
+        else{
+          phnV=false;
+        }
         this.setState({
-            userDetails:userDetails
+            userDetails:userDetails,
+            phnValid:phnV,
         })
     }
     emailChanged=(e)=>{
+      let emailV=false;
 
+   
+      
+    
+  
       const userDetails=this.state.userDetails;
       userDetails.useremail=e.target.value;
+      if (validator.isEmail(e.target.value))
+      {
+      emailV=true;
+      }
+      else{
+        emailV=false;
+      }
       this.setState({
-          userDetails:userDetails
+          userDetails:userDetails,
+          emailValid:emailV,
       })
   }
   userNameChanged=(e)=>{

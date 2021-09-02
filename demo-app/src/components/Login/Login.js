@@ -24,7 +24,7 @@ class Login extends Component{
             userName:"",
             countryCode:"",
             phoneNumber:"",
-            passwordValid:false,
+            passwordValid:true,
             errorMsg:"Please enter a valid email or password",
             passCheck:false,
 

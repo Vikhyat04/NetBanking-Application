@@ -28,7 +28,7 @@ class Signup extends Component{
             emailCheck:false,
             emailError:"",
             emailValid:true,
-            passwordValid:false,
+            passwordValid:true,
             errorMsg:"Please enter a valid email or password",
             passCheck:false,
             userCheck:false,
