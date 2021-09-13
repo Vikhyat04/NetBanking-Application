@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 //FaUserAlt
 import { Redirect } from "react-router";
 import { FaUserAlt} from "react-icons/fa";
+import config from '../../config.json';
 
 class Header extends Component
 {

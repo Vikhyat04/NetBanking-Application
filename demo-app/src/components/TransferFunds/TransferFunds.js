@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./TransferFunds.css";
 import axios from "axios";
+import config from '../../config.json';
 
 class TransferFunds extends Component{
 
@@ -26,7 +27,7 @@ class TransferFunds extends Component{
     }
     beforeTransfer=()=>{
       
-        axios.get("http://localhost:3010/allusers")
+        axios.get(config.backEndURL+"/allusers")
         .then(response => {
             console.log("Status Code : ", response.status);
             if (response.status === 200) {
@@ -54,7 +55,7 @@ class TransferFunds extends Component{
              //   console.log(e);
                // const transferDetails={toUserEmail:this.state.email,fromUserEmail:this.state.userDetails.useremail,amount:this.state.amount};
                 // console.log(tranferDetails);
-                axios.post("http://localhost:3010/transfer",transferReq)
+                axios.post(config.backEndURL+"/transfer",transferReq)
                 .then(response => {
                   console.log("Status Code : ", response.status);
                   console.log(response);

@@ -9,6 +9,7 @@ import { MdEmail} from "react-icons/md";
 import { AiFillPhone } from "react-icons/ai";
 import axios from "axios";
 import validator from "validator";
+import config from '../../config.json';
 
 class Signup extends Component{
 
@@ -106,7 +107,7 @@ this.setState({
         // console.log(e);
 const signUpRequest={userEmail:this.state.email,userpassword:this.state.password,userName:this.state.userName,userCountryCode:this.state.countryCode,userPhoneno:this.state.phoneNo};
 console.log(signUpRequest);
-axios.post("http://localhost:3010/signup",signUpRequest)
+axios.post(config.backEndURL+"/signup",signUpRequest)
 .then(response => {
     console.log("Status Code : ", response.status);
     console.log(response);

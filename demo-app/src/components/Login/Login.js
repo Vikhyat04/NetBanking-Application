@@ -7,6 +7,7 @@ import { FiCheckCircle } from "react-icons/fi";
 import { MdEmail} from "react-icons/md";
 import axios from "axios";
 import validator from "validator";
+import config from '../../config.json';
 
 class Login extends Component{
 
@@ -116,7 +117,7 @@ if(this.state.emailCheck&&this.state.passwordValid)
 {
     const loginRequest={userEmail:this.state.email,userpassword:this.state.password};
 console.log(loginRequest);
-axios.post("http://localhost:3010/login",loginRequest)
+axios.post(config.backEndURL+"/login",loginRequest)
 .then(response => {
     console.log("Status Code : ", response.status);
     console.log(response);

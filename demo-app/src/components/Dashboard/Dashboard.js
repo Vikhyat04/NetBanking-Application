@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import axios from "axios";
 import moment from "moment";
 import MaterialTable from 'material-table';
+import config from '../../config.json';
 
 class Dashboard extends Component{
 
@@ -31,7 +32,7 @@ class Dashboard extends Component{
 
     beforeDashboard=()=>{
       
-        axios.get("http://localhost:3010/userDashboard?loginUserEmail="+this.state.userDetails.useremail)
+        axios.get(config.backEndURL+"/userDashboard?loginUserEmail="+this.state.userDetails.useremail)
         .then(response => {
             console.log("Status Code : ", response.status);
             if (response.status === 200) {

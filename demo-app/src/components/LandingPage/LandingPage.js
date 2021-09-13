@@ -11,6 +11,7 @@ import { DiApple } from "react-icons/di";
 import Picture from '../../assets/images/banking.PNG'
 import Picture2 from '../../assets/images/Pay.PNG'
 import Picture3 from '../../assets/images/Transfer.PNG'
+
 class LandingPage extends Component{
   constructor(props)
   {

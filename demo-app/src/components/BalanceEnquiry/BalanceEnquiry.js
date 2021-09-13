@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./BalanceEnquiry.css";
 import axios from "axios";
+import config from '../../config.json';
+
 
 class BalanceEnquiry extends Component{
 
@@ -26,7 +28,7 @@ class BalanceEnquiry extends Component{
 
     beforeBalanceEnquiry=()=>{
       
-        axios.get("http://localhost:3010/userBalance?userEmail="+this.state.userDetails.useremail)
+        axios.get(config.backEndURL+"/userBalance?userEmail="+this.state.userDetails.useremail)
         .then(response => {
             console.log("Status Code : ", response.status);
             if (response.status === 200) {

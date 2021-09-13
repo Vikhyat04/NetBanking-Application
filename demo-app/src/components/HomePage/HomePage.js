@@ -9,7 +9,7 @@ import BalanceEnquiry from "../BalanceEnquiry/BalanceEnquiry";
 //import Picture1 from '../../assets/images/welecomeToInternetBanking.PNG'
 import { Redirect } from "react-router";
 import Dashboard from "../Dashboard/Dashboard";
-
+import config from '../../config.json';
 
 class HomePage extends Component{
   constructor(props)
