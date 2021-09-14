@@ -15,12 +15,12 @@ module.exports = {
         res.status(200).send("Success");
     },
 updateProfDtlsDB:(updateUserDtlsReq)=>{
-
-let updateSql="update user_details set user_name='"+updateUserDtlsReq.userName+"' where user_email='"+updateUserDtlsReq.userEmail+"' where phone_number='"+updateUserDtlsReq.phoneNo+"'where country_code'"+updateUserDtlsReq.countryCode;
+return new Promise((resolve,reject)=>{
+let updateSql="update user_details set user_name='"+updateUserDtlsReq.userName+"',phone_number='"+updateUserDtlsReq.phoneNo+"',country_code='"+updateUserDtlsReq.countryCode+"' where user_email='"+updateUserDtlsReq.userEmail+"'";
 console.log(updateSql);
 db.sequelize.query(updateSql,{ type: db.sequelize.QueryTypes.UPDATE })
 .then(response=>{
-  console.log(response.data);
+ return resolve(response);
   })
  .catch(err => {
       // response.status(500).send({
@@ -34,7 +34,7 @@ db.sequelize.query(updateSql,{ type: db.sequelize.QueryTypes.UPDATE })
     res.status(500).send(errorDetails)
     });
 
-
+})
 }
 
 
