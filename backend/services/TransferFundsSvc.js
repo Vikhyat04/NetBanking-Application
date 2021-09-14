@@ -167,13 +167,13 @@ transfer:async (req,res)=>{
                                   if(response.length>0){
 res.status(200).send(response);
                                   }
-                                  else{
-                                    let errorDetails={
-                                        errorCode:"E03",
-                                        errorDesc:"Some error occurred unabe to transfer funds"
-                                    }
-                                    res.status(500).send(errorDetails)
-                                  }
+                                //   else{
+                                //     let errorDetails={
+                                //         errorCode:"E03",
+                                //         errorDesc:"Some error occurred unabe to transfer funds"
+                                //     }
+                                //     res.status(500).send(errorDetails);
+                                //   }
                                            },
                                         
                                         getTxnDetailsDB:(loginUserEmail)=>{
