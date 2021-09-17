@@ -57,37 +57,37 @@ This section contains the images of the product in action. Following is an index
  
  • Figure 8 consists of the Profile page
  
- ![image](https://user-images.githubusercontent.com/84954548/133716517-c2ade85a-e1b4-497f-bf2e-d843d3699abd.png)
+                                    ![image](https://user-images.githubusercontent.com/84954548/133716517-c2ade85a-e1b4-497f-bf2e-d843d3699abd.png)
  
                                          Figure 2: Landing Page
                                          
                                          
- ![image](https://user-images.githubusercontent.com/84954548/133716606-f9ca9b00-0281-402c-8971-218017027099.png)
+                                    ![image](https://user-images.githubusercontent.com/84954548/133716606-f9ca9b00-0281-402c-8971-218017027099.png)
  
                                          Figure 3: Login Page
                                          
                                          
- ![image](https://user-images.githubusercontent.com/84954548/133716654-4c6261e9-47db-46e0-a460-9a4b96094c10.png)
+                                    ![image](https://user-images.githubusercontent.com/84954548/133716654-4c6261e9-47db-46e0-a460-9a4b96094c10.png)
  
                                          Figure 4: Signup Page
                                          
                                          
- ![image](https://user-images.githubusercontent.com/84954548/133716700-5d25ca9f-8d71-4e5e-8275-d121eb3784c3.png)
+                                    ![image](https://user-images.githubusercontent.com/84954548/133716700-5d25ca9f-8d71-4e5e-8275-d121eb3784c3.png)
  
                                          Figure 5: Dashboard Page
                                          
                                          
- ![image](https://user-images.githubusercontent.com/84954548/133716746-763cae2f-7dc0-4370-94d0-7b7e67177f78.png)
+                                    ![image](https://user-images.githubusercontent.com/84954548/133716746-763cae2f-7dc0-4370-94d0-7b7e67177f78.png)
  
                                          Figure 6: Bank Enquiry Page
                                          
                                          
-![image](https://user-images.githubusercontent.com/84954548/133716832-bab24d56-6ebe-4190-891d-3a5749b86d80.png) 
+                                   ![image](https://user-images.githubusercontent.com/84954548/133716832-bab24d56-6ebe-4190-891d-3a5749b86d80.png) 
 
                                          Figure 7: Transaction Page
                                          
                                          
-![image](https://user-images.githubusercontent.com/84954548/133716882-ec3f5c8e-0058-4cfb-a7d3-f93d1a109277.png)
+                                   ![image](https://user-images.githubusercontent.com/84954548/133716882-ec3f5c8e-0058-4cfb-a7d3-f93d1a109277.png)
 
                                          Figure 8: Profile Page
 
