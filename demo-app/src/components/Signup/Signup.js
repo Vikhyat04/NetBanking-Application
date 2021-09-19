@@ -210,6 +210,14 @@ countryCodeChanged=(event)=>{
         let hold3=null;
         let hold4=null;
       if(this.state.signedIn){
+        const userDetails={
+          userName:this.state.userName,
+          email:this.state.email,
+          phoneno:this.state.phoneNumber,
+          countryCode:this.state.countryCode
+        }
+        sessionStorage.setItem("userDetails",JSON.stringify(userDetails));
+
         console.log("Signed in");
         this.props.history.push({pathname:"/home",userDetails:{
           userName:this.state.userName,
