@@ -33,7 +33,7 @@ With our GUI application, we were able to make an online banking app with an int
 
 ## Contributions
 
-Vikhyat: Student who worked on the UI, API and backend
+Vikhyat Jagini: Student who worked on the UI, API and backend
 
 Bharat: Mentor who guided this whole project. Assisted to fix minute errors and helped teach the programming languages required for this extensive project.
 
